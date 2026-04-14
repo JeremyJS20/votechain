@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import HttpClient from '../../Infrastructure/HttpClient'
 import TopAppBar from '../Components/Common/TopAppBar'
 import InstitutionalButton from '../Components/Common/InstitutionalButton'
 import InstitutionalModal from '../Components/Common/InstitutionalModal'
@@ -14,7 +16,8 @@ interface IdentityVerificationProps {
 
 const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onSuccess }) => {
   const { t } = useTranslation()
-  const { setUserId, setCedula: setPersistentCedula, resetSession, cedula: initialCedula } = useVerificationContext()
+  const navigate = useNavigate()
+  const { setUserId, setCedula: setPersistentCedula, setUserVerified, resetSession, cedula: initialCedula } = useVerificationContext()
   const [cedula, setLocalCedula] = useState(initialCedula || '')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -59,11 +62,19 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
   const handleContinue = async () => {
     if (cedula.length !== 11) return
     
+    // Bypass for test cedula
+    if (cedula === '00000000000') {
+      setUserVerified(true)
+      setUserId('test-bypass-user')
+      navigate('/verification/success', { viewTransition: true })
+      return
+    }
+    
     setIsLoading(true)
     setError('')
     
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/identity/verify', {
+      const response = await HttpClient.post('/identity/verify', {
         cedula
       })
       
