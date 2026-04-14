@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Vote | Sovereign Trust</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#7b2600",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#dbe2f9",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "inverse-surface": "#293041",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#0052cc",
+                    "surface-container-low": "#f1f3ff",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#bac7de",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "outline": "#737685",
+                    "primary": "#003d9b",
+                    "tertiary-fixed": "#ffdbcf",
+                    "secondary-container": "#d6e3fb",
+                    "primary-fixed": "#dae2ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "surface-container-high": "#e0e8ff",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#b2c5ff",
+                    "secondary": "#525f73",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#ffc6b2",
+                    "inverse-on-surface": "#edf0ff",
+                    "error": "#ba1a1a",
+                    "background": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#e9edff",
+                    "on-secondary-fixed-variant": "#3b485a",
+                    "on-primary-container": "#c4d2ff",
+                    "on-surface-variant": "#434654",
+                    "on-background": "#141b2c",
+                    "secondary-fixed": "#d6e3fb",
+                    "surface-bright": "#f9f9ff",
+                    "on-secondary-fixed": "#0f1c2d",
+                    "on-primary-fixed": "#001848",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface-variant": "#dbe2f9",
+                    "surface-tint": "#0c56d0",
+                    "outline-variant": "#c3c6d6",
+                    "tertiary-container": "#a33500",
+                    "surface": "#f9f9ff",
+                    "on-surface": "#141b2c",
+                    "on-secondary-container": "#586579",
+                    "surface-dim": "#d2daf0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .glass-badge {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(195, 198, 214, 0.2);
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-[#f9f9ff] dark:bg-slate-950 flex justify-between items-center px-12 py-6 w-full max-w-none fixed top-0 z-[100]">
+<div class="flex items-center gap-4">
+<span class="font-manrope font-extrabold text-[#003d9b] dark:text-blue-300 tracking-tighter text-2xl">Sovereign Trust</span>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-manrope font-semibold hover:bg-[#f1f3ff] transition-colors px-3 py-2 rounded-lg" href="#">President</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope font-semibold hover:bg-[#f1f3ff] transition-colors px-3 py-2 rounded-lg" href="#">Senator</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope font-semibold hover:bg-[#f1f3ff] transition-colors px-3 py-2 rounded-lg" href="#">Deputies</a>
+<a class="text-[#0052CC] dark:text-blue-400 font-bold font-manrope px-3 py-2 rounded-lg underline underline-offset-8 decoration-2" href="#">Review</a>
+</nav>
+<div class="flex items-center gap-2 text-[#0052CC] dark:text-blue-400 active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<span class="font-label text-xs font-bold tracking-widest uppercase">Secured</span>
+</div>
+</div>
+</header>
+<!-- Layout Shell -->
+<div class="flex min-h-screen pt-24 pb-20">
+<!-- SideNavBar -->
+<aside class="bg-[#f1f3ff] dark:bg-slate-900 fixed left-0 top-24 w-72 h-[calc(100vh-12rem)] flex flex-col rounded-r-xl z-40 hidden lg:flex">
+<div class="p-8">
+<h2 class="font-manrope font-bold text-xl text-on-surface">Election Progress</h2>
+<p class="font-inter text-sm text-slate-500">Voter Session Active</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 px-6 py-4 flex items-center gap-4 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-manrope font-semibold text-lg">President</span>
+</a>
+<a class="text-slate-500 px-6 py-4 flex items-center gap-4 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-manrope font-semibold text-lg">Senator</span>
+</a>
+<a class="text-slate-500 px-6 py-4 flex items-center gap-4 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-manrope font-semibold text-lg">Deputies</span>
+</a>
+<a class="bg-[#dae2ff] dark:bg-blue-900/30 text-[#0c56d0] border-l-4 border-[#0c56d0] px-6 py-4 flex items-center gap-4" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-manrope font-semibold text-lg">Review</span>
+</a>
+</nav>
+<div class="mt-auto p-8">
+<div class="glass-badge p-4 rounded-xl flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-label text-[10px] font-bold tracking-wider text-on-surface uppercase">Live Encryption</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-80 px-8 md:px-16 py-12">
+<div class="max-w-5xl mx-auto">
+<header class="mb-16">
+<h1 class="font-headline font-bold text-4xl lg:text-5xl text-on-background tracking-tight mb-4">Final Ballot Review</h1>
+<div class="flex items-center gap-4 p-6 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="info">info</span>
+<p class="font-body text-lg text-on-surface leading-relaxed">
+                            Please review your selections. <span class="font-bold">Once submitted, your vote cannot be changed.</span>
+</p>
+</div>
+</header>
+<!-- Bento Grid Summary -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20">
+<!-- President Card -->
+<div class="md:col-span-12 lg:col-span-7 bg-surface-container-low p-8 rounded-xl flex flex-col md:flex-row gap-8 items-center border border-primary/5">
+<div class="w-32 h-32 rounded-full bg-surface-container-highest overflow-hidden shrink-0">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of a mature male candidate in a navy suit with a confident smile against a neutral office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYFj2iEXF42hDGwSrXxW8kpBqhmzWs4Uto5KDx9br7Xy9nnQY4gm4GS8ru-ResrkxuPQ2Zb_mY2eh4bMYcOmn3aZ5cdwcLXGFf23j2EPhcRnYnEcVmfzCcKyAizW9NENsQTSaMbS-VsEwKEtC8Yh5kggV6xn9_WsGQcu2Lf94kan8OjQ1fQrfwMFOctpadijlWap-O4yeMcptukikbst8Z2xB37lj80MN94hI1jNp_7o_rm_JTxoWEd8JSOhmb4V1dcXhOcnSlYM99"/>
+</div>
+<div class="flex-1 text-center md:text-left">
+<span class="font-label text-xs font-bold text-primary tracking-widest uppercase mb-2 block">Selected President</span>
+<h3 class="font-headline font-bold text-3xl text-on-surface mb-1">Eleanor Vance</h3>
+<p class="text-secondary font-medium italic mb-4">Progressive Unity Party</p>
+<div class="flex gap-4 justify-center md:justify-start">
+<span class="glass-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Verified Choice</span>
+<span class="glass-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">ID: UV-882</span>
+</div>
+</div>
+<button class="shrink-0 active:scale-95 transition-transform text-primary font-bold text-sm uppercase tracking-widest px-4 py-2 hover:bg-surface-container-highest rounded-lg">Edit</button>
+</div>
+<!-- Senator Card -->
+<div class="md:col-span-6 lg:col-span-5 bg-surface-container-low p-8 rounded-xl flex flex-col gap-6 border border-primary/5">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label text-xs font-bold text-primary tracking-widest uppercase mb-2 block">Selected Senator</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface">Dr. Marcus Thorne</h3>
+<p class="text-secondary text-sm">Citizen Action Network</p>
+</div>
+<button class="active:scale-95 transition-transform text-primary font-bold text-xs uppercase tracking-widest">Edit</button>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Headshot of a middle-aged male with glasses and a friendly expression, professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUwhO87UzV6maI6Rey603Celmpy_dT2eiyQ-uthcUq4b1O_kieVUIaqsHR7m7T70cWtZB8Nnpu7nU9CYPS2BVtd2xAH1XozwjslMrGK5bPHav8xj9GzNbHh1HTEF1OulzpvLNh5foHMbzgD2F5rzZU8SNiFU8SFDpZ9zdJLFZYPdyIALwNgbOe0W9AoA4wO26dCsEzc2PSCZlSgp6idcFEGcVfs7QR-WJ_dWiQrS9WMmfGgj_tGcaPVaS968JangMRXG2q2L-3F3lJ"/>
+</div>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-full h-full bg-surface-tint"></div>
+</div>
+</div>
+</div>
+<!-- Deputies Card -->
+<div class="md:col-span-6 lg:col-span-12 bg-surface-container-low p-8 rounded-xl border border-primary/5">
+<div class="flex justify-between items-center mb-8">
+<div>
+<span class="font-label text-xs font-bold text-primary tracking-widest uppercase mb-1 block">Deputies Selection</span>
+<h3 class="font-headline font-bold text-2xl text-on-surface">Full Slate: Metro District</h3>
+</div>
+<button class="active:scale-95 transition-transform text-primary font-bold text-sm uppercase tracking-widest px-4 py-2 hover:bg-surface-container-highest rounded-lg">Modify Selection</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">1</div>
+<span class="font-body font-semibold text-on-surface">Sarah Jenkins</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">2</div>
+<span class="font-body font-semibold text-on-surface">Liam O'Neill</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">3</div>
+<span class="font-body font-semibold text-on-surface">Sofia Chen</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">4</div>
+<span class="font-body font-semibold text-on-surface">David Abioye</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer Area (Within Main) -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-12 pb-24">
+<button class="w-full md:w-auto px-12 py-5 bg-surface-container-highest text-on-primary-fixed-variant font-headline font-bold text-lg rounded-full active:scale-[0.98] transition-all hover:bg-surface-variant">
+                        Go Back
+                    </button>
+<button class="w-full md:w-96 px-12 py-5 primary-gradient text-white font-headline font-bold text-xl rounded-full active:scale-[0.98] transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3">
+<span>Confirm Vote</span>
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-[#d2daf0] dark:bg-slate-900 fixed bottom-0 w-full px-12 py-4 flex justify-between items-center z-50">
+<div class="flex items-center gap-4">
+<span class="text-[#003d9b] font-black font-inter text-xs uppercase tracking-widest">Official Voting System</span>
+<span class="text-slate-400">|</span>
+<span class="text-slate-600 dark:text-slate-400 font-inter text-xs uppercase tracking-widest font-bold">SECURED BY BLOCKCHAIN</span>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-inter text-xs uppercase tracking-widest font-bold hover:text-[#003d9b] transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-600 dark:text-slate-400 font-inter text-xs uppercase tracking-widest font-bold hover:text-[#003d9b] transition-colors" href="#">Security Audit</a>
+<a class="text-slate-600 dark:text-slate-400 font-inter text-xs uppercase tracking-widest font-bold hover:text-[#003d9b] transition-colors" href="#">Help</a>
+</div>
+</footer>
+</body></html>

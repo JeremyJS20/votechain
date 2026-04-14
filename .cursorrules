@@ -1,0 +1,15 @@
+# VoteChain - System Instructions
+
+ALWAYS enforce the guidelines, rules, and specialized skills defined in the project for every request. Every operation must strictly adhere to the established "Digital Institution" architectural and design standards.
+
+**Mandatory Action:**
+Before starting ANY task, you MUST refer to the following resources to ground your implementation in the project's specific standards:
+
+1. **Integrated Skills:** Refer to the specialized AI instructions in `.agents/skills/` (e.g., `accessibility`, `frontend-design`, `nodejs-backend-patterns`, `prisma-client-api`). You MUST apply relevant skills for every code change.
+2. **Project Context:**
+   - **Frontend & Overall Framework:** Refer to `votechain_context.md`.
+   - **Backend Architecture & Security:** Refer to `backend_context.md`.
+   - **Design System & Branding:** Refer to `DESIGN.md`.
+3. **Core Documentation:** Refer to the `README.MD` for high-level setup and technical overviews.
+
+Use these files as your sole source of truth. DO NOT replicate these standards within this `.cursorrules` file. Instead, you are required to demonstrate active compliance with these sources in every response and code modification.

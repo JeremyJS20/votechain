@@ -1,0 +1,51 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build outputs
+dist/
+build/
+.vite/
+out/
+.next/
+.serverless/
+artifacts/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# IDE / Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# Database
+*.db
+*.db-journal
+/apps/backend/prisma/dev.db
+
+# Agentic / AI Development
+.agents/
+.cursor/
+skills-lock.json
+# (We keep .cursorrules and context files according to project standards)
+
+# Temporary files
+tmp/
+temp/

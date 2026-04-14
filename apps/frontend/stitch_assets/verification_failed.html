@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0f1c2d",
+                    "on-secondary-container": "#586579",
+                    "on-primary-container": "#c4d2ff",
+                    "tertiary": "#7b2600",
+                    "surface-container-highest": "#dbe2f9",
+                    "surface": "#f9f9ff",
+                    "tertiary-container": "#a33500",
+                    "inverse-primary": "#b2c5ff",
+                    "secondary-fixed": "#d6e3fb",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface-container": "#e9edff",
+                    "on-surface": "#141b2c",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f1f3ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "on-primary-fixed": "#001848",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#0052cc",
+                    "tertiary-fixed": "#ffdbcf",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#141b2c",
+                    "background": "#f9f9ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-tint": "#0c56d0",
+                    "on-surface-variant": "#434654",
+                    "on-error-container": "#93000a",
+                    "outline": "#737685",
+                    "surface-container-high": "#e0e8ff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "outline-variant": "#c3c6d6",
+                    "on-tertiary-fixed": "#380d00",
+                    "secondary": "#525f73",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#d6e3fb",
+                    "surface-variant": "#dbe2f9",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "secondary-fixed-dim": "#bac7de",
+                    "inverse-surface": "#293041",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d2daf0",
+                    "on-secondary-fixed-variant": "#3b485a",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+        }
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<nav class="bg-[#f9f9ff] dark:bg-slate-950 sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto relative">
+<div class="text-xl font-bold font-headline text-[#141b2c] dark:text-slate-50">
+                Sovereign Trust
+            </div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 dark:text-slate-400 hover:bg-[#f1f3ff] dark:hover:bg-slate-800 transition-colors duration-200 p-2 rounded-full active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="bg-[#f1f3ff] dark:bg-slate-900 h-px w-full absolute bottom-0 left-0 opacity-50"></div>
+</div>
+</nav>
+<!-- Main Content: Verification Error State -->
+<main class="flex-grow flex items-center justify-center px-6 py-12">
+<div class="max-w-xl w-full">
+<!-- Asymmetric Layout Container -->
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<!-- Security Illustration/Context Area -->
+<div class="hidden md:block w-1/3">
+<div class="relative">
+<div class="aspect-[3/4] rounded-xl overflow-hidden bg-surface-container-low shadow-[20px_20px_40px_rgba(20,27,44,0.06)]">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-80" data-alt="abstract digital security concept with deep blue light nodes and structural geometric lines on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0I1kMvaziytIXW_TtG4U15wORKrFfdDNa8hcXnMeJLNcZOwXPZoIKKp3N1BLcenv0O8Y4tG_HismZJJgjJYBLGZyrY12fcgpfbwueKq2HaRkecMapv8hubbD2baqT6qVVTxk1a1AAEFSderqFEw9pJiwnRXbAeXOO31RT053-FWRE-dUk_DzmjL7LEgRhXVaJrRgd6WMF6o34UKpPdR1fi6pzs2YjiOejhQaUUGWuJGK5DGEeQaJ0oW4larTxmYtTMQWvJwkoPvbd"/>
+</div>
+<!-- Glass Security Badge -->
+<div class="absolute -bottom-4 -right-4 glass-badge p-4 rounded-xl border border-white/20 shadow-lg">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-[0.65rem] font-label font-medium tracking-widest uppercase text-on-surface">Secure Protocol</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Error Message Content Area -->
+<div class="flex-1 space-y-8">
+<header class="space-y-4">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-error-container text-on-error-container">
+<span class="material-symbols-outlined">gpp_maybe</span>
+</div>
+<h1 class="font-headline text-[1.75rem] font-bold tracking-tight text-on-surface leading-tight">
+                            Identity Verification <br/>Required
+                        </h1>
+</header>
+<!-- Error Callout -->
+<div class="p-6 rounded-xl bg-error-container/30 border-l-4 border-error">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">error</span>
+<div class="space-y-1">
+<p class="font-body text-on-surface font-semibold">Verification failed. Please try again.</p>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                                    The cryptographic signature provided does not match the stored biometric template. Please ensure you are in a well-lit area and your credentials are up to date.
+                                </p>
+</div>
+</div>
+</div>
+<!-- Helpful Steps -->
+<div class="space-y-4 pt-4">
+<h3 class="font-label text-[0.75rem] uppercase tracking-widest font-medium text-outline">Troubleshooting Steps</h3>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-tint"></div>
+                                Verify your hardware key is properly connected.
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-tint"></div>
+                                Ensure your camera lens is clean for biometric scanning.
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-tint"></div>
+                                Check if your digital identity certificate has expired.
+                            </li>
+</ul>
+</div>
+<!-- Action Area -->
+<div class="pt-6 flex flex-col gap-4">
+<button class="bg-primary-gradient h-[64px] rounded-xl text-on-primary font-body font-semibold flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+                            Retry Verification
+                            <span class="material-symbols-outlined">refresh</span>
+</button>
+<button class="h-[64px] rounded-xl bg-surface-container-highest text-on-primary-fixed-variant font-body font-semibold hover:bg-surface-container-high active:scale-[0.98] transition-all">
+                            Contact Security Support
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#d2daf0] dark:bg-slate-900 w-full mt-auto">
+<div class="w-full px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8 border-none">
+<div class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-[#141b2c] dark:text-slate-300">
+                © 2024 Sovereign Trust. Secure Identity Protocol.
+            </div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors active:opacity-70" href="#">Privacy Policy</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors active:opacity-70" href="#">Security Terms</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors active:opacity-70" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

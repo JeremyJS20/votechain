@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Citizen {
+  id             String   @id @default(uuid())
+  cedula         String   @unique
+  fullName       String
+  dateOfBirth    DateTime
+  gender         String
+  registrationStatus String @default("VERIFIED")
+  lastVerified   DateTime @updatedAt
+  node           String   @default("NODE-04-DR")
+}
+
+model Verification {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  sessionId     String
+  status        String   // "Approved" | "Declined" | "In Review"
+  decisionAt    DateTime?
+  provider      String   @default("didit")
+  payloadHash   String?  // optional for integrity
+  cedulaHash    String?  // hashed ID for matching
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

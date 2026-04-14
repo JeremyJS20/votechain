@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Welcome to Sovereign Trust - Secure Voting Portal</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#0052cc",
+                    "secondary-fixed": "#d6e3fb",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#0c56d0",
+                    "tertiary": "#7b2600",
+                    "surface-variant": "#dbe2f9",
+                    "surface-bright": "#f9f9ff",
+                    "secondary-fixed-dim": "#bac7de",
+                    "inverse-primary": "#b2c5ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-secondary-fixed": "#0f1c2d",
+                    "tertiary-container": "#a33500",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#dbe2f9",
+                    "on-surface": "#141b2c",
+                    "on-secondary": "#ffffff",
+                    "background": "#f9f9ff",
+                    "on-primary-fixed": "#001848",
+                    "on-primary-container": "#c4d2ff",
+                    "secondary": "#525f73",
+                    "primary": "#003d9b",
+                    "secondary-container": "#d6e3fb",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e0e8ff",
+                    "on-secondary-container": "#586579",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "on-tertiary-container": "#ffc6b2",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "inverse-on-surface": "#edf0ff",
+                    "surface-dim": "#d2daf0",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "on-background": "#141b2c",
+                    "surface-container-low": "#f1f3ff",
+                    "on-tertiary-fixed": "#380d00",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed-variant": "#3b485a",
+                    "surface-container": "#e9edff",
+                    "surface": "#f9f9ff",
+                    "outline": "#737685",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#293041",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "outline-variant": "#c3c6d6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#f9f9ff]/80 backdrop-blur-2xl dark:bg-slate-950/80 docked full-width top-0 sticky z-50 shadow-[0_20px_40px_rgba(20,27,44,0.06)]">
+<nav class="flex items-center justify-between px-8 md:px-16 w-full h-20 max-w-screen-2xl mx-auto">
+<div class="text-xl font-extrabold tracking-tighter uppercase text-slate-900 dark:text-slate-50 font-headline">
+                Sovereign Trust
+            </div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="#">Ballot</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="#">Verification</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="#">Identity</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="#">Security</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+<button class="bg-gradient-primary text-on-primary px-6 py-2.5 rounded-full font-headline font-bold text-sm tracking-tight active:scale-[0.98] transition-all">
+                    Secure Login
+                </button>
+</div>
+</nav>
+</header>
+<main class="flex-grow flex items-center justify-center px-6 py-12 md:py-24 overflow-hidden">
+<div class="max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<!-- Left Content: Editorial Typography -->
+<div class="md:col-span-7 flex flex-col gap-8 md:pr-12">
+<div class="flex flex-col gap-4">
+<div class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-low rounded-full w-fit">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-label font-bold text-[10px] tracking-[0.1em] uppercase text-on-surface-variant">Military Grade Encryption</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1]">
+                        Welcome to the <span class="text-gradient-primary">Secure Voting</span> Portal
+                    </h1>
+</div>
+<p class="text-body text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl">
+                    Your identity is protected by multi-layered blockchain encryption. Please prepare your government-issued ID to begin the validation process.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 items-center">
+<button class="w-full sm:w-auto min-h-[64px] px-10 bg-gradient-primary text-on-primary rounded-xl font-headline font-bold text-lg active:scale-[0.98] transition-transform shadow-[0_20px_40px_rgba(0,61,155,0.15)] flex items-center justify-center gap-3">
+                        Begin Identity Verification
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex items-center gap-3 text-secondary">
+<span class="material-symbols-outlined text-2xl" data-icon="help_outline">help_outline</span>
+<span class="font-label text-sm font-semibold">How it works</span>
+</div>
+</div>
+<!-- Trust Badges (Architectural Asymmetry) -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-12 border-t border-outline-variant/20">
+<div class="flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_lock">shield_lock</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">End-to-End</h4>
+<p class="text-xs text-on-surface-variant mt-1">Encrypted ballot transmission</p>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="fingerprint">fingerprint</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">Biometric Sync</h4>
+<p class="text-xs text-on-surface-variant mt-1">Multi-factor ID validation</p>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_balance">account_balance</span>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">Institutional</h4>
+<p class="text-xs text-on-surface-variant mt-1">Official government protocol</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Visual: The "Digital Monument" / Bento Grid Element -->
+<div class="md:col-span-5 relative">
+<!-- Decorative Abstract Background -->
+<div class="absolute -top-20 -right-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-tertiary/5 rounded-full blur-[100px]"></div>
+<div class="relative grid grid-cols-2 gap-4">
+<!-- Secure ID Frame -->
+<div class="col-span-2 aspect-[16/9] bg-surface-container-lowest rounded-xl shadow-[0_40px_80px_rgba(20,27,44,0.08)] p-6 overflow-hidden flex flex-col justify-between border border-outline-variant/10">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="contact_page">contact_page</span>
+</div>
+<div class="bg-surface-container-high/70 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-tertiary-fixed-variant">Live Encryption</span>
+</div>
+</div>
+<div>
+<div class="h-2 w-1/2 bg-surface-container-highest rounded-full mb-2"></div>
+<div class="h-2 w-3/4 bg-surface-container-highest rounded-full"></div>
+</div>
+<div class="relative h-24 mt-4 rounded-lg bg-surface-container-low/50 border-2 border-dashed border-primary/20 flex items-center justify-center group overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="Modern translucent microchip with glowing blue circuit paths on a dark glass background representing high-tech security" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6FVd1hgH_g_y2IIXXt1HuPUBEr6qMr87y5sW_2Y5WqMZdvUfyTpNbwWODWZrQGnrDAA2W1jJL36BtEAYiG-b7do0efgNQehmIZERf4VPhJv8kycnAVo_tyX5Fqub7-JN3Vuez929j0-dz8tm6wuoSOcFbeZlRoQrj5JL5VrZrFSLFU2Ks7irBfBSrju3sylECbo9nNblIbvdBjeeNzctWj3B5nLcebXeSPYaBHE68XI4VOttCuBGiCSivLrIlIvrj7s2YZ0-CiHWK"/>
+<span class="material-symbols-outlined text-primary/40 text-4xl" data-icon="add_a_photo">add_a_photo</span>
+</div>
+</div>
+<!-- Small Bento Items -->
+<div class="aspect-square bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="link">link</span>
+<p class="text-xs font-bold leading-tight uppercase tracking-wider text-on-surface-variant">Immutable Blockchain Record</p>
+</div>
+<div class="aspect-square bg-primary text-on-primary rounded-xl p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="fact_check" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<p class="text-xs font-bold leading-tight uppercase tracking-wider">Certified Audit Ready</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#d2daf0] dark:bg-slate-900 full-width py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 md:px-24 w-full gap-8 max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-2">
+<span class="font-manrope font-semibold text-slate-800 dark:text-slate-200">Sovereign Trust Digital Institution</span>
+<p class="font-inter text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    © 2024 Sovereign Trust Digital Institution. All rights reserved. Blockchain Verified System.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 font-inter text-sm hover:text-blue-700 dark:hover:text-blue-200 transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-600 dark:text-slate-400 font-inter text-sm hover:text-blue-700 dark:hover:text-blue-200 transition-colors" href="#">Security Protocol</a>
+<a class="text-slate-600 dark:text-slate-400 font-inter text-sm hover:text-blue-700 dark:hover:text-blue-200 transition-colors" href="#">Accessibility</a>
+<a class="text-slate-600 dark:text-slate-400 font-inter text-sm hover:text-blue-700 dark:hover:text-blue-200 transition-colors" href="#">Voter Rights</a>
+<a class="text-slate-600 dark:text-slate-400 font-inter text-sm hover:text-blue-700 dark:hover:text-blue-200 transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

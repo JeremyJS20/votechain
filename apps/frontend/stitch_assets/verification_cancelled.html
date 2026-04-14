@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verification Cancelled | Sovereign Trust</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0f1c2d",
+                    "on-secondary-container": "#586579",
+                    "on-primary-container": "#c4d2ff",
+                    "tertiary": "#7b2600",
+                    "surface-container-highest": "#dbe2f9",
+                    "surface": "#f9f9ff",
+                    "tertiary-container": "#a33500",
+                    "inverse-primary": "#b2c5ff",
+                    "secondary-fixed": "#d6e3fb",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface-container": "#e9edff",
+                    "on-surface": "#141b2c",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f1f3ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "on-primary-fixed": "#001848",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#0052cc",
+                    "tertiary-fixed": "#ffdbcf",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#141b2c",
+                    "background": "#f9f9ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-tint": "#0c56d0",
+                    "on-surface-variant": "#434654",
+                    "on-error-container": "#93000a",
+                    "outline": "#737685",
+                    "surface-container-high": "#e0e8ff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "outline-variant": "#c3c6d6",
+                    "on-tertiary-fixed": "#380d00",
+                    "secondary": "#525f73",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#d6e3fb",
+                    "surface-variant": "#dbe2f9",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "secondary-fixed-dim": "#bac7de",
+                    "inverse-surface": "#293041",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d2daf0",
+                    "on-secondary-fixed-variant": "#3b485a",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+        }
+        .ambient-shadow {
+            box-shadow: 0 20px 40px -20px rgba(20, 27, 44, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-body min-h-screen flex flex-col selection:bg-primary-fixed selection:text-primary">
+<!-- TopAppBar -->
+<header class="bg-[#f9f9ff] dark:bg-slate-950 sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto relative">
+<div class="text-xl font-bold font-headline text-[#141b2c] dark:text-slate-50 tracking-tight">
+                Sovereign Trust
+            </div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-500 dark:text-slate-400 font-headline text-lg font-bold tracking-tight hover:bg-[#f1f3ff] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Home</a>
+<a class="text-slate-500 dark:text-slate-400 font-headline text-lg font-bold tracking-tight hover:bg-[#f1f3ff] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Dashboard</a>
+<a class="text-[#0052CC] font-bold font-headline text-lg tracking-tight px-3 py-1 rounded-lg" href="#">Verification</a>
+</div>
+<div class="flex items-center gap-4 text-[#0052CC] dark:text-blue-400">
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1f3ff] p-2 rounded-full transition-colors">verified_user</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1f3ff] p-2 rounded-full transition-colors">help_outline</span>
+</div>
+</div>
+<div class="bg-[#f1f3ff] dark:bg-slate-900 h-px w-full absolute bottom-0 left-0 opacity-50"></div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-6 py-12 md:py-24">
+<!-- Main Content Canvas -->
+<div class="w-full max-w-3xl flex flex-col md:flex-row gap-12 items-center md:items-start">
+<!-- Visual Side (Architectural Asymmetry) -->
+<div class="w-full md:w-5/12 order-2 md:order-1">
+<div class="relative group">
+<!-- Decorative Element -->
+<div class="absolute -top-6 -left-6 w-24 h-24 bg-surface-container-highest rounded-full opacity-40 blur-2xl"></div>
+<div class="bg-surface-container-low p-12 rounded-xl relative overflow-hidden flex flex-col items-center justify-center min-h-[340px]">
+<div class="w-20 h-20 flex items-center justify-center rounded-full bg-error-container text-error mb-8">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 600;">block</span>
+</div>
+<!-- Blockchain Security Badge (Glassmorphism) -->
+<div class="glass-badge border border-white/40 px-4 py-2 rounded-full flex items-center gap-3 absolute bottom-6 ambient-shadow">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label text-[0.75rem] uppercase tracking-widest font-medium text-on-surface">Secure Protocol Active</span>
+</div>
+<!-- Abstract Shape for Texture -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+</div>
+</div>
+</div>
+<!-- Content Side -->
+<div class="w-full md:w-7/12 order-1 md:order-2 flex flex-col text-center md:text-left">
+<div class="mb-2">
+<span class="font-label text-[0.75rem] uppercase tracking-widest font-medium text-secondary">Session Notice</span>
+</div>
+<h1 class="font-headline text-[3.5rem] font-extrabold text-on-surface leading-[1.1] mb-6 tracking-tight">
+                    Verification was cancelled
+                </h1>
+<p class="font-body text-[1.125rem] leading-relaxed text-on-surface-variant mb-10 max-w-md">
+                    The identification process was stopped before completion. Your sensitive data has been purged from the active session for your protection.
+                </p>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-4 items-center md:items-start">
+<button class="primary-gradient text-on-primary font-body font-semibold px-10 h-16 rounded-xl ambient-shadow hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center min-w-[180px]">
+                        Start Again
+                    </button>
+<button class="bg-surface-container-highest text-on-primary-fixed-variant font-body font-semibold px-10 h-16 rounded-xl hover:bg-surface-container-high active:scale-[0.98] transition-all flex items-center justify-center min-w-[180px]">
+                        Back to Home
+                    </button>
+</div>
+<!-- Assistance Note -->
+<div class="mt-12 pt-8 flex items-center gap-4 border-t border-outline-variant/20">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">contact_support</span>
+</div>
+<div>
+<p class="font-body text-sm text-on-surface-variant">Having trouble with your documents?</p>
+<a class="font-body text-sm font-semibold text-primary hover:underline" href="#">Contact Support Protocol</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#d2daf0] dark:bg-slate-900 w-full mt-auto">
+<div class="w-full px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8 border-none">
+<div class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-[#141b2c] dark:text-slate-300">
+                © 2024 Sovereign Trust. Secure Identity Protocol.
+            </div>
+<div class="flex flex-wrap justify-center gap-10">
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors" href="#">Security Terms</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

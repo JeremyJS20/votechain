@@ -1,0 +1,157 @@
+{
+  "common": {
+    "login": "Secure Login",
+    "verified": "Secure Auth",
+    "logout": "Logout",
+    "search": "Search",
+    "continue": "Continue"
+  },
+  "nav": {
+    "ballot": "Ballot",
+    "verification": "Verification",
+    "identity": "Identity",
+    "security": "Security",
+    "brand_name": "VoteChain",
+    "digital_institution": "JCE Digital Protocol",
+    "node_realtime": "Real-time Node",
+    "help": "Help",
+    "cancel": "Cancel"
+  },
+  "welcome": {
+    "protocol_v": "Official JCE Protocol v4.0.2",
+    "encryption_badge": "Military Grade Encryption",
+    "title_main": "Welcome to the",
+    "title_highlight": "Secure Voting",
+    "title_suffix": "Portal",
+    "subtext": "Your identity is protected by multi-layered blockchain encryption. Please prepare your Cédula de Identidad y Electoral to begin the validation process.",
+    "cta_main": "Begin Cédula Verification",
+    "how_it_works": "How it works",
+    "proof": {
+      "e2e": "End-to-End",
+      "e2e_sub": "Encrypted ballot transmission",
+      "biometric": "Biometric Sync",
+      "biometric_sub": "Multi-factor ID validation",
+      "institutional": "Institutional",
+      "institutional_sub": "Official government protocol"
+    },
+    "bento": {
+      "security_shield": "Active Security Shield",
+      "node_status": "Quantum-Resistant Node Connectivity",
+      "blockchain_record": "Immutable Blockchain Record",
+      "audit_ready": "Certified Audit Ready",
+      "node_tag": "Junta Central Electoral | Digital Node 04"
+    }
+  },
+  "footer": {
+    "institution": "Junta Central Electoral",
+    "institution_sub": "República Dominicana | Institución Digital",
+    "mission": "Global leader in blockchain-based democratic infrastructure and digital governance.",
+    "links": {
+      "government": "Government",
+      "voter_rights": "Voter Rights",
+      "security_protocol": "Security Protocol",
+      "legal": "Legal",
+      "privacy_policy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "support": "Support",
+      "accessibility": "Accessibility",
+      "contact": "Contact Node"
+    },
+    "copyright": "© 2024 Junta Central Electoral. All rights reserved. Blockchain Verified System."
+  },
+  "identity": {
+    "step_label": "Step 01 of 04",
+    "title": "Identity Verification",
+    "subtext": "Please enter your 11-digit Cédula number as it appears on your physical document. This information is encrypted immediately.",
+    "input_label": "Cédula Number",
+    "input_placeholder": "000-0000000-0",
+    "cta_verify": "Verify Identity",
+    "back_cta": "Return to Welcome",
+    "helper": {
+      "security": "Authorized JCE Encryption",
+      "padrón": "Verified with National Registry"
+    },
+    "sidebar": {
+      "security_title": "Institutional Security",
+      "security_text": "Your information is protected by Sovereign-grade end-to-end encryption. Data is processed locally and never stored in a readable format.",
+      "agent_verified": "Agent Verified",
+      "monitoring": "System Monitoring Active",
+      "accepted_ids": "Accepted IDs",
+      "id_passport": "Passport",
+      "id_license": "Driver's License",
+      "id_card": "National ID Card"
+    },
+    "badges": {
+      "live_encryption": "Live Encryption Active"
+    },
+    "errors": {
+      "cedula_min_error": "Cédula must be exactly 11 digits.",
+      "cedula_max_error": "Cédula must be exactly 11 digits.",
+      "cedula_numeric_error": "Only numerical values are permitted.",
+      "generic_error": "An error occurred during verification. Please try again."
+    },
+    "modal": {
+      "title": "Identity Verified",
+      "subtitle": "National Registry Match",
+      "citizen_name": "Citizen Name",
+      "document": "Document",
+      "registry_node": "Registry Node",
+      "default_document": "Cédula de Identidad",
+      "default_node": "Central DB",
+      "secure_session": "Secure Session",
+      "proceed_cta": "Proceed to Biometrics"
+    }
+  },
+  "verifying": {
+    "title": "Verifying your identity...",
+    "subtitle": "Establishing a secure connection with the National Identity Registry. This ensures your vote remains private and tamper-proof.",
+    "step1": {
+      "title": "Biometric Match",
+      "desc": "Facial recognition confirmed."
+    },
+    "step2": {
+      "title": "Registry Validation",
+      "desc": "Cross-referencing blockchain ledger."
+    },
+    "step3": {
+      "title": "Final Handshake",
+      "desc": "Generating ephemeral session key."
+    },
+    "encryption": "256-bit AES Encryption Active"
+  },
+  "biometric": {
+    "title": "Biometric Verification",
+    "subtitle": "Secure your digital identity by providing a quick biometric scan. Powered by Didit Protocol.",
+    "status": "Status",
+    "cta_start": "Start Verification Session",
+    "error_title": "Verification Error",
+    "cta_retry": "Try Again",
+    "success_title": "Identity Verified Successfully",
+    "loading_layer": "Initializing Secure Layer",
+    "handshake": "End-to-End Encrypted Handshake",
+    "instruction": "Please click the button below to launch the secure environment. You may be asked for camera permissions.",
+    "syncing_title": "Syncing...",
+    "syncing_subtext": "We are validating your identity with the Civil Registry. Please stay on this page.",
+    "declined_title": "Identity Not Verified",
+    "retry_cta": "Retry Verification"
+  },
+  "success": {
+    "title": "Identity Authenticated",
+    "subtitle": "Your digital credential has been securely issued and synchronized with the JCE Blockchain Node. You are now authorized to cast your encrypted ballot.",
+    "citizen_label": "Citizen Name",
+    "session_label": "Secure Session ID",
+    "timestamp_label": "Authenticated At",
+    "issued_by": "Issued by Junta Central Electoral",
+    "cta_proceed": "Proceed to Ballot",
+    "badge": "Auth Success",
+    "monument_authorized": "PROTOCOL AUTHORIZED",
+    "node_label": "Institutional Node",
+    "node_value": "SANTO DOMINGO • PRIMARY",
+    "secured_label": "SECURED",
+    "protocol_version_label": "ARCHITECTURE",
+    "zk_proof_validated": "ZK-Proof Validated",
+    "auth_protocol": "Auth Protocol",
+    "local_time": "Local Time GMT -5",
+    "security_active": "Bank-grade 256-bit security active"
+  }
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Identity Verification | Sovereign Trust</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#0f1c2d",
+                        "on-secondary-container": "#586579",
+                        "on-primary-container": "#c4d2ff",
+                        "tertiary": "#7b2600",
+                        "surface-container-highest": "#dbe2f9",
+                        "surface": "#f9f9ff",
+                        "tertiary-container": "#a33500",
+                        "inverse-primary": "#b2c5ff",
+                        "secondary-fixed": "#d6e3fb",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface-container": "#e9edff",
+                        "on-surface": "#141b2c",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f1f3ff",
+                        "primary-fixed": "#dae2ff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-primary-fixed": "#001848",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0052cc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f9f9ff",
+                        "on-background": "#141b2c",
+                        "background": "#f9f9ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "surface-tint": "#0c56d0",
+                        "on-surface-variant": "#434654",
+                        "on-error-container": "#93000a",
+                        "outline": "#737685",
+                        "surface-container-high": "#e0e8ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "outline-variant": "#c3c6d6",
+                        "on-tertiary-fixed": "#380d00",
+                        "secondary": "#525f73",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#003d9b",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#d6e3fb",
+                        "surface-variant": "#dbe2f9",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "secondary-fixed-dim": "#bac7de",
+                        "inverse-surface": "#293041",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d2daf0",
+                        "on-secondary-fixed-variant": "#3b485a",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+        }
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<nav class="bg-[#f9f9ff] dark:bg-slate-950 relative">
+<div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold font-manrope text-[#141b2c] dark:text-slate-50 tracking-tight">
+                Sovereign Trust
+            </div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-500 hover:bg-[#f1f3ff] transition-colors p-2 rounded-full cursor-pointer" data-icon="help_outline">help_outline</span>
+<span class="material-symbols-outlined text-[#0052CC] hover:bg-[#f1f3ff] transition-colors p-2 rounded-full cursor-pointer" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+<div class="bg-[#f1f3ff] dark:bg-slate-900 h-px w-full absolute bottom-0 opacity-50"></div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center px-6 py-12 md:py-24">
+<div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<!-- Left Side: Narrative & Identity -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- Security Indicator -->
+<div class="flex items-center gap-3">
+<div class="glass-badge px-4 py-2 rounded-full flex items-center gap-2 border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-[0.65rem] font-bold uppercase tracking-widest font-label text-on-surface-variant">Live Encryption Active</span>
+</div>
+</div>
+<div class="space-y-4">
+<h1 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface tracking-tight leading-[1.1]">
+                        Identity Verification Required
+                    </h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        To continue, you must verify your identity using a secure verification process. This ensures the integrity of the digital institution and protects your civic participation.
+                    </p>
+</div>
+<!-- Bento Grid Features (Modern Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="fingerprint">fingerprint</span>
+<div>
+<h3 class="font-headline font-bold text-lg">Biometric Match</h3>
+<p class="text-sm text-on-surface-variant">Secure facial analysis to confirm identity presence.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_balance">account_balance</span>
+<div>
+<h3 class="font-headline font-bold text-lg">Gov-ID Check</h3>
+<p class="text-sm text-on-surface-variant">Instant validation against official government databases.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Interaction Card -->
+<div class="lg:col-span-5">
+<div class="bg-surface-container-lowest p-10 rounded-xl shadow-[0px_20px_40px_rgba(20,27,44,0.06)] border border-outline-variant/10 relative overflow-hidden">
+<!-- Subtle Background Detail -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="flex flex-col gap-10 relative z-10">
+<div class="flex justify-center">
+<div class="w-20 h-20 bg-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="lock_person" style="font-variation-settings: 'FILL' 1;">lock_person</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="space-y-2 text-center">
+<h2 class="text-2xl font-headline font-bold">Ready to Start?</h2>
+<p class="text-sm text-on-surface-variant px-4">Verification usually takes less than 2 minutes. Have your ID ready.</p>
+</div>
+<div class="space-y-4">
+<button class="w-full h-16 bg-gradient-primary text-on-primary rounded-xl font-headline font-bold text-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-transform duration-200">
+                                    Start Verification
+                                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full h-14 bg-surface-container-highest text-on-primary-fixed-variant rounded-xl font-headline font-bold text-base active:scale-[0.98] transition-transform duration-200">
+                                    Learn More
+                                </button>
+</div>
+</div>
+<div class="flex items-center justify-center gap-2 pt-4 opacity-60">
+<span class="material-symbols-outlined text-xs" data-icon="shield">shield</span>
+<span class="text-[0.65rem] font-label font-medium uppercase tracking-[0.1em]">AES-256 Bit Encryption</span>
+</div>
+</div>
+</div>
+<!-- Contextual Detail: Trust Badge -->
+<div class="mt-8 flex flex-col items-center gap-4">
+<p class="text-[0.7rem] font-label font-bold text-on-surface-variant uppercase tracking-widest">Powered by</p>
+<div class="flex items-center gap-2 grayscale opacity-70">
+<span class="font-headline font-extrabold text-lg text-on-surface">Didit</span>
+<div class="h-4 w-px bg-outline-variant"></div>
+<span class="font-headline font-bold text-lg text-primary">SDK Integration</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#d2daf0] dark:bg-slate-900 w-full mt-auto">
+<div class="w-full px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8 border-none">
+<div class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-[#141b2c] dark:text-slate-300">
+                © 2024 Sovereign Trust. Secure Identity Protocol.
+            </div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] transition-colors" href="#">Security Terms</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

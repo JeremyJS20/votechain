@@ -1,0 +1,157 @@
+{
+  "common": {
+    "login": "Acceso Seguro",
+    "verified": "Autenticación",
+    "logout": "Cerrar Sesión",
+    "search": "Buscar",
+    "continue": "Continuar"
+  },
+  "nav": {
+    "ballot": "Boleta",
+    "verification": "Verificación",
+    "identity": "Identidad",
+    "security": "Seguridad",
+    "brand_name": "VoteChain",
+    "digital_institution": "Protocolo Digital JCE",
+    "node_realtime": "Nodo en Tiempo Real",
+    "help": "Ayuda",
+    "cancel": "Cancelar"
+  },
+  "welcome": {
+    "protocol_v": "Protocolo Oficial JCE v4.0.2",
+    "encryption_badge": "Cifrado Nacional de Grado Militar",
+    "title_main": "Bienvenidos al",
+    "title_highlight": "Portal de Votación",
+    "title_suffix": "Segura",
+    "subtext": "Su identidad está protegida por múltiples capas de cifrado blockchain. Por favor, tenga a mano su Cédula de Identidad y Electoral para iniciar el proceso de validación.",
+    "cta_main": "Iniciar Verificación de Cédula",
+    "how_it_works": "Cómo funciona",
+    "proof": {
+      "e2e": "Cifrado Extremo",
+      "e2e_sub": "Transmisión de boleta encriptada",
+      "biometric": "Sincronización Biométrica",
+      "biometric_sub": "Validación ID multifactorial",
+      "institutional": "Institucional",
+      "institutional_sub": "Protocolo gubernamental oficial"
+    },
+    "bento": {
+      "security_shield": "Escudo de Seguridad Activo",
+      "node_status": "Conectividad de Nodo Quantum-Resistant",
+      "blockchain_record": "Registro Inmutable Blockchain",
+      "audit_ready": "Certificado para Auditoría",
+      "node_tag": "Junta Central Electoral | Nodo Digital 04"
+    }
+  },
+  "footer": {
+    "institution": "Junta Central Electoral",
+    "institution_sub": "República Dominicana | Institución Digital",
+    "mission": "Líder global en infraestructura democrática basada en blockchain y gobernanza digital.",
+    "links": {
+      "government": "Gobierno",
+      "voter_rights": "Derechos del Votante",
+      "security_protocol": "Protocolo de Seguridad",
+      "legal": "Legal",
+      "privacy_policy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "support": "Soporte",
+      "accessibility": "Accesibilidad",
+      "contact": "Contactar Nodo"
+    },
+    "copyright": "© 2024 Junta Central Electoral. Todos los derechos reservados. Sistema Verificado por Blockchain."
+  },
+  "identity": {
+    "step_label": "Paso 01 de 04",
+    "title": "Verificación de Identidad",
+    "subtext": "Por favor, ingrese los 11 dígitos de su Cédula tal como aparecen en su documento físico. Esta información es cifrada de inmediato.",
+    "input_label": "Número de Cédula",
+    "input_placeholder": "000-0000000-0",
+    "cta_verify": "Verificar Identidad",
+    "back_cta": "Regresar al Inicio",
+    "helper": {
+      "security": "Cifrado JCE Autorizado",
+      "padrón": "Verificado con el Padrón Nacional"
+    },
+    "sidebar": {
+      "security_title": "Seguridad Institucional",
+      "security_text": "Su información está protegida por cifrado de extremo a extremo de grado Soberano. Los datos se procesan localmente y nunca se almacenan en un formato legible.",
+      "agent_verified": "Agente Verificado",
+      "monitoring": "Monitoreo del Sistema Activo",
+      "accepted_ids": "IDs Aceptados",
+      "id_passport": "Pasaporte",
+      "id_license": "Licencia de Conducir",
+      "id_card": "Cédula de Identidad"
+    },
+    "badges": {
+      "live_encryption": "Cifrado en Vivo Activo"
+    },
+    "errors": {
+      "cedula_min_error": "La Cédula debe tener exactamente 11 dígitos.",
+      "cedula_max_error": "La Cédula debe tener exactamente 11 dígitos.",
+      "cedula_numeric_error": "Solo se permiten valores numéricos.",
+      "generic_error": "Ocurrió un error durante la verificación. Por favor, intente de nuevo."
+    },
+    "modal": {
+      "title": "Identidad Verificada",
+      "subtitle": "Coincidencia de Padrón Nacional",
+      "citizen_name": "Nombre del Ciudadano",
+      "document": "Documento",
+      "registry_node": "Nodo de Registro",
+      "default_document": "Cédula de Identidad",
+      "default_node": "DB Central",
+      "secure_session": "Sesión Segura",
+      "proceed_cta": "Proceder a Biometría"
+    }
+  },
+  "verifying": {
+    "title": "Verificando su identidad...",
+    "subtitle": "Estableciendo una conexión segura con el Registro Nacional de Identidad. Esto asegura que su voto permanezca privado y a prueba de manipulaciones.",
+    "step1": {
+      "title": "Coincidencia Biométrica",
+      "desc": "Reconocimiento facial confirmado."
+    },
+    "step2": {
+      "title": "Validación de Registro",
+      "desc": "Verificando contra el libro mayor de blockchain."
+    },
+    "step3": {
+      "title": "Apretón de Manos Final",
+      "desc": "Generando clave de sesión efímera."
+    },
+    "encryption": "Cifrado AES de 256 bits activo"
+  },
+  "biometric": {
+    "title": "Verificación Biométrica",
+    "subtitle": "Asegure su identidad digital mediante un escaneo biométrico rápido. Desarrollado por Didit Protocol.",
+    "status": "Estado",
+    "cta_start": "Iniciar Sesión de Verificación",
+    "error_title": "Error de Verificación",
+    "cta_retry": "Intentar de Nuevo",
+    "success_title": "Identidad Verificada Exitosamente",
+    "loading_layer": "Iniciando Capa Segura",
+    "handshake": "Apretón de Manos Cifrado Extremo",
+    "instruction": "Por favor, haga clic en el botón de abajo para iniciar el entorno seguro. Es posible que se le soliciten permisos de cámara.",
+    "syncing_title": "Sincronizando...",
+    "syncing_subtext": "Estamos validando su identidad con el Registro Civil. Por favor, permanezca en esta página.",
+    "declined_title": "Identidad no verificada",
+    "retry_cta": "Reintentar verificación"
+  },
+  "success": {
+    "title": "Identidad Autenticada",
+    "subtitle": "Su credencial digital ha sido emitida de forma segura y sincronizada con el Nodo Blockchain de la JCE. Ahora está autorizado para emitir su voto cifrado.",
+    "citizen_label": "Nombre del Ciudadano",
+    "session_label": "ID de Sesión Segura",
+    "timestamp_label": "Autenticado en",
+    "issued_by": "Emitido por la Junta Central Electoral",
+    "cta_proceed": "Proceder al Voto",
+    "badge": "Autenticación Exitosa",
+    "monument_authorized": "Digitalmente Autorizado",
+    "node_label": "Nodo Institucional",
+    "node_value": "SANTO DOMINGO • PRINCIPAL",
+    "secured_label": "ASEGURADO",
+    "protocol_version_label": "Versión del Protocolo",
+    "zk_proof_validated": "ZK-Proof Validada",
+    "auth_protocol": "Protocolo de Autenticación",
+    "local_time": "Hora Local GMT -5",
+    "security_active": "Seguridad activa nivel bancario 256-bit"
+  }
+}

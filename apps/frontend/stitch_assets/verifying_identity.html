@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Trust | Identity Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0f1c2d",
+                    "on-secondary-container": "#586579",
+                    "on-primary-container": "#c4d2ff",
+                    "tertiary": "#7b2600",
+                    "surface-container-highest": "#dbe2f9",
+                    "surface": "#f9f9ff",
+                    "tertiary-container": "#a33500",
+                    "inverse-primary": "#b2c5ff",
+                    "secondary-fixed": "#d6e3fb",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface-container": "#e9edff",
+                    "on-surface": "#141b2c",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f1f3ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "on-primary-fixed": "#001848",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#0052cc",
+                    "tertiary-fixed": "#ffdbcf",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#141b2c",
+                    "background": "#f9f9ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-tint": "#0c56d0",
+                    "on-surface-variant": "#434654",
+                    "on-error-container": "#93000a",
+                    "outline": "#737685",
+                    "surface-container-high": "#e0e8ff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "outline-variant": "#c3c6d6",
+                    "on-tertiary-fixed": "#380d00",
+                    "secondary": "#525f73",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#edf0ff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#d6e3fb",
+                    "surface-variant": "#dbe2f9",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "secondary-fixed-dim": "#bac7de",
+                    "inverse-surface": "#293041",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d2daf0",
+                    "on-secondary-fixed-variant": "#3b485a",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed antialiased overflow-hidden">
+<!-- Top Navigation Anchor (Suppressed based on Transactional Rule - showing simple branding only) -->
+<header class="bg-[#f9f9ff] dark:bg-slate-950 docked full-width top-0 relative z-50">
+<div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold font-headline text-[#141b2c] dark:text-slate-50 tracking-tight">
+                Sovereign Trust
+            </div>
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label text-[0.75rem] uppercase tracking-widest font-medium">Secure Session</span>
+</div>
+</div>
+<div class="bg-[#f1f3ff] dark:bg-slate-900 h-px w-full absolute bottom-0 opacity-50"></div>
+</header>
+<main class="min-h-[calc(100vh-160px)] flex flex-col items-center justify-center p-6 relative">
+<!-- Background Architectural Elements -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-48 -left-48 w-[32rem] h-[32rem] bg-secondary-container/10 rounded-full blur-[100px]"></div>
+</div>
+<div class="w-full max-w-2xl text-center space-y-12 relative z-10">
+<!-- Central Processing Indicator -->
+<div class="flex flex-col items-center">
+<div class="relative w-48 h-48 mb-8">
+<!-- Progress Ring Base -->
+<svg class="w-full h-full">
+<circle class="text-surface-container-highest" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="4"></circle>
+<circle class="progress-ring-circle" cx="96" cy="96" fill="transparent" r="88" stroke="url(#gradient)" stroke-dasharray="552.92" stroke-dashoffset="180" stroke-linecap="round" stroke-width="4"></circle>
+<defs>
+<lineargradient id="gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#003d9b"></stop>
+<stop offset="100%" stop-color="#0052cc"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Inner Security Icon with Glassmorphism -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-32 h-32 bg-surface-container-lowest/70 backdrop-blur-[24px] rounded-full flex items-center justify-center shadow-[rgba(20,27,44,0.06)_0px_20px_40px]">
+<span class="material-symbols-outlined text-5xl text-primary-container" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+</div>
+</div>
+<!-- Live Encryption Badge -->
+<div class="absolute -bottom-2 right-4 bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label text-[0.65rem] uppercase tracking-widest font-semibold text-on-surface">Live Encryption</span>
+</div>
+</div>
+<div class="space-y-4">
+<h1 class="font-headline text-[1.75rem] font-bold text-on-surface tracking-tight">Verifying your identity...</h1>
+<p class="font-body text-on-surface-variant max-w-md mx-auto leading-relaxed">
+                        Establishing a secure connection with the National Identity Registry. This ensures your vote remains private and tamper-proof.
+                    </p>
+</div>
+</div>
+<!-- Modern Bento Processing List -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+<!-- Step 1: Complete -->
+<div class="bg-surface-container-low p-5 rounded-xl border border-transparent">
+<div class="flex items-start justify-between mb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label text-[0.6rem] uppercase tracking-tighter text-primary font-bold">Step 1</span>
+</div>
+<div class="font-headline text-sm font-bold text-on-surface">Biometric Match</div>
+<div class="font-label text-[0.7rem] text-on-surface-variant mt-1">Facial recognition confirmed.</div>
+</div>
+<!-- Step 2: Active -->
+<div class="bg-primary-fixed p-5 rounded-xl border border-primary/20 shadow-[rgba(20,27,44,0.06)_0px_10px_20px] relative overflow-hidden">
+<div class="flex items-start justify-between mb-2">
+<span class="material-symbols-outlined text-primary-container animate-pulse">sync</span>
+<span class="font-label text-[0.6rem] uppercase tracking-tighter text-on-primary-fixed-variant font-bold">Step 2</span>
+</div>
+<div class="font-headline text-sm font-bold text-on-surface">Registry Validation</div>
+<div class="font-label text-[0.7rem] text-on-primary-fixed-variant mt-1">Cross-referencing blockchain ledger.</div>
+<!-- Shimmer overlay simulation -->
+<div class="absolute inset-0 shimmer opacity-20 pointer-events-none"></div>
+</div>
+<!-- Step 3: Pending -->
+<div class="bg-surface-container-low p-5 rounded-xl opacity-60">
+<div class="flex items-start justify-between mb-2">
+<span class="material-symbols-outlined text-outline">pending</span>
+<span class="font-label text-[0.6rem] uppercase tracking-tighter text-outline font-bold">Step 3</span>
+</div>
+<div class="font-headline text-sm font-bold text-on-surface">Final Handshake</div>
+<div class="font-label text-[0.7rem] text-on-surface-variant mt-1">Generating ephemeral session key.</div>
+</div>
+</div>
+<!-- Security Footer Note -->
+<div class="pt-8 border-t border-surface-container-highest/50 max-w-lg mx-auto">
+<div class="flex items-center justify-center gap-3 bg-surface-container-low/50 py-3 px-6 rounded-full inline-flex">
+<span class="material-symbols-outlined text-sm text-outline">lock</span>
+<span class="font-label text-[0.7rem] uppercase tracking-[0.1em] font-medium text-on-surface-variant">256-bit AES Encryption Active</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#d2daf0] dark:bg-slate-900 w-full mt-auto">
+<div class="w-full px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8 border-none max-w-screen-2xl mx-auto">
+<div class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-[#141b2c] dark:text-slate-300">
+                © 2024 Sovereign Trust. Secure Identity Protocol.
+            </div>
+<div class="flex gap-8">
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors" href="#">Security Terms</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-widest font-medium text-slate-600 dark:text-slate-400 hover:text-[#003d9b] dark:hover:text-white transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOVEREIGN TRUST - Identity Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d6e3fb",
+                        "surface-variant": "#dbe2f9",
+                        "primary-container": "#0052cc",
+                        "inverse-on-surface": "#edf0ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "tertiary-fixed": "#ffdbcf",
+                        "secondary-container": "#d6e3fb",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-surface": "#141b2c",
+                        "on-primary-fixed": "#001848",
+                        "surface-container-highest": "#dbe2f9",
+                        "surface-container-high": "#e0e8ff",
+                        "surface-dim": "#d2daf0",
+                        "surface-container-low": "#f1f3ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-secondary-fixed-variant": "#3b485a",
+                        "tertiary": "#7b2600",
+                        "surface-container": "#e9edff",
+                        "primary": "#003d9b",
+                        "on-secondary-fixed": "#0f1c2d",
+                        "on-background": "#141b2c",
+                        "outline-variant": "#c3c6d6",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#293041",
+                        "secondary-fixed-dim": "#bac7de",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "inverse-primary": "#b2c5ff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#525f73",
+                        "outline": "#737685",
+                        "surface-tint": "#0c56d0",
+                        "primary-fixed": "#dae2ff",
+                        "background": "#f9f9ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-container": "#586579",
+                        "on-tertiary-fixed": "#380d00",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#434654",
+                        "tertiary-container": "#a33500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+        .segmented-progress {
+            display: flex;
+            gap: 4px;
+        }
+        .progress-segment {
+            height: 4px;
+            flex: 1;
+            border-radius: 2px;
+        }
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#f9f9ff] dark:bg-[#0a0a0c] fixed top-0 h-20 w-full z-50">
+<div class="flex justify-between items-center px-10 w-full max-w-screen-2xl mx-auto h-full relative">
+<div class="font-['Manrope'] font-extrabold uppercase tracking-[0.05em] text-[#141b2c] dark:text-[#f9f9ff] text-xl">
+                SOVEREIGN TRUST
+            </div>
+<div class="flex gap-6">
+<button class="material-symbols-outlined text-[#141b2c] opacity-60 hover:bg-[#f1f3ff] transition-colors p-2 rounded-lg" data-icon="help">help</button>
+<button class="material-symbols-outlined text-[#141b2c] opacity-60 hover:bg-[#f1f3ff] transition-colors p-2 rounded-lg" data-icon="cancel">cancel</button>
+</div>
+<div class="bg-[#f1f3ff] dark:bg-[#141b2c] h-[1px] w-full absolute bottom-0 left-0"></div>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-12 px-6 flex flex-col items-center">
+<div class="w-full max-w-2xl">
+<!-- Progress Section -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<span class="font-label text-xs font-medium uppercase tracking-wider text-on-surface-variant">Identity Verification</span>
+<span class="font-label text-xs font-bold text-primary">Step 1 of 4</span>
+</div>
+<div class="segmented-progress">
+<div class="progress-segment bg-surface-tint"></div>
+<div class="progress-segment bg-surface-container-highest"></div>
+<div class="progress-segment bg-surface-container-highest"></div>
+<div class="progress-segment bg-surface-container-highest"></div>
+</div>
+</div>
+<!-- Content Header -->
+<div class="mb-10">
+<h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface tracking-tight mb-4">Verify Your Identity</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-lg">
+                    Please enter your government-issued ID number to begin the secure verification process.
+                </p>
+</div>
+<!-- Input Section with Asymmetric Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-7">
+<!-- ID Input Field -->
+<div class="relative mb-12">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-2 block">Document Number</label>
+<div class="bg-surface-container-lowest h-20 flex items-center px-6 rounded-xl shadow-[0_20px_40px_rgba(20,27,44,0.04)] border-b-2 border-primary">
+<span class="material-symbols-outlined text-outline-variant mr-4" data-icon="fingerprint">fingerprint</span>
+<input class="w-full bg-transparent border-none text-2xl font-headline font-bold tracking-[0.2em] text-on-surface placeholder:text-outline-variant" placeholder="000 - 00 - 0000" readonly="" type="text"/>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="glass-badge px-3 py-1.5 rounded-full flex items-center gap-2 border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label text-[10px] font-bold uppercase tracking-tighter text-on-surface">Live Encryption Active</span>
+</div>
+</div>
+</div>
+<!-- Digital Keypad (Custom UI for Kiosk/Secure Input) -->
+<div class="grid grid-cols-3 gap-3">
+<!-- Keypad Buttons -->
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">1</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">2</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">3</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">4</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">5</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">6</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">7</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">8</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">9</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface material-symbols-outlined" data-icon="backspace">backspace</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface">0</button>
+<button class="h-16 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.95] transition-all rounded-xl font-headline font-bold text-xl text-on-surface material-symbols-outlined" data-icon="check_circle">check_circle</button>
+</div>
+<!-- Action Button -->
+<button class="w-full mt-10 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-3 shadow-lg shadow-primary/20">
+                        Continue
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Descriptive/Instructional Sidebar -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-surface-container-low p-8 rounded-2xl">
+<div class="w-12 h-12 bg-surface-container-lowest rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+</div>
+<h3 class="font-headline font-bold text-lg mb-3">Institutional Security</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            Your information is protected by Sovereign-grade end-to-end encryption. Data is processed locally and never stored in a readable format.
+                        </p>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full" data-alt="professional portrait of a high-security official in a modern blue uniform against a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4lVWqAVUaHDJwK5bStVQKZ6SJVMclk6SxtmjR3lsPoLUcm1Qzhmm_gHCHAJnJz9UW5xFnLvxGd5apks6oQw3_n3FcKOcVAkbNHysS12mpJeXDBkXWOqWNUhpRmUSc6VGRpL61eYfcTboZQcSJSBpXoD3YA3Avk-uJiy6_XsQCdtoLZ1Niv6i3C9cciTneMosHw2kjnir3GP95F_DG6L-zfjjXAeCh0BTNBZIHO3eNN0cF3ZaMZaU_VYyyaLtsHd-mgIOK5SWQOI4Z"/>
+<div>
+<p class="text-xs font-bold text-on-surface">Agent Verified</p>
+<p class="text-[10px] text-on-surface-variant">System Monitoring Active</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-dim p-8 rounded-2xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline font-bold text-lg mb-2">Accepted IDs</h3>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Passport
+                                </li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Driver's License
+                                </li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> National ID Card
+                                </li>
+</ul>
+</div>
+<span class="material-symbols-outlined absolute -bottom-6 -right-6 text-surface-variant text-9xl opacity-20 rotate-12" data-icon="badge">badge</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Suppressed as this is transactional/focused journey) -->
+<!-- Navigation is hidden to prioritize the verification task as per Shell Visibility Rules -->
+<footer class="mt-auto bg-surface-dim py-8 px-10">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-6">
+<span class="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Blockchain Secured</span>
+<span class="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">GDPR Compliant</span>
+</div>
+<p class="font-label text-[10px] text-on-surface-variant opacity-60">© 2024 SOVEREIGN TRUST INSTITUTIONAL PORTAL</p>
+</div>
+</footer>
+</body></html>
