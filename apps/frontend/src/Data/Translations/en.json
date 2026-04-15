@@ -1,4 +1,49 @@
 {
+  "errors": {
+    "common": {
+      "field_required": "This field is required.",
+      "missing_fields": "Missing required fields.",
+      "internal_error": "Internal server error.",
+      "unexpected": "An unexpected error occurred.",
+      "unauthorized": "Unauthorized access.",
+      "no_auth_voter": "No authenticated voter. Restart the verification process.",
+      "keys_not_ready": "Cryptographic keys not ready.",
+      "no_election_selected": "No election selected."
+    },
+    "identity": {
+      "cedula_len": "Cédula must be exactly 11 digits.",
+      "numeric_only": "Only numerical values are permitted.",
+      "not_found": "Identity not found in National Registry.",
+      "not_verified": "Identity document is not currently active or verified."
+    },
+    "voting": {
+      "user_not_found": "User not found.",
+      "user_not_verified": "User registration is not verified.",
+      "biometric_failed": "Biometric verification not approved.",
+      "already_voted": "You have already voted in this election.",
+      "no_public_key": "No public key registered. Key registration is required.",
+      "signature_failed": "Cryptographic signature verification failed.",
+      "election_not_found": "Election not found.",
+      "election_inactive": "This election is not currently active.",
+      "unknown_election_type": "Unknown election type.",
+      "period_closed": "This election period has been closed."
+    },
+    "vote": {
+      "congressional_required": "Congressional vote requires at least one selection.",
+      "presidential_required": "Presidential vote requires a candidate selection.",
+      "regidor_required": "Municipal vote requires at least one regidor selection.",
+      "alcalde_required": "Municipal vote requires an alcalde selection.",
+      "signature_required": "Cryptographic signature is required.",
+      "candidate_not_found": "Selected candidate was not found.",
+      "senador_not_found": "Senador candidate not found or not in your province.",
+      "diputado_not_found": "Diputado candidate not found or not in your province.",
+      "alcalde_not_found": "Alcalde candidate not found or not in your municipality.",
+      "regidor_not_found": "Regidor candidate not found or not in your municipality."
+    },
+    "keys": {
+      "public_key_required": "Public key (JWK) is required."
+    }
+  },
   "common": {
     "login": "Secure Login",
     "verified": "Secure Auth",
@@ -84,11 +129,8 @@
     "badges": {
       "live_encryption": "Live Encryption Active"
     },
-    "errors": {
-      "cedula_min_error": "Cédula must be exactly 11 digits.",
-      "cedula_max_error": "Cédula must be exactly 11 digits.",
-      "cedula_numeric_error": "Only numerical values are permitted.",
-      "generic_error": "An error occurred during verification. Please try again."
+    "badges": {
+      "live_encryption": "Live Encryption Active"
     },
     "modal": {
       "title": "Identity Verified",
@@ -153,5 +195,141 @@
     "auth_protocol": "Auth Protocol",
     "local_time": "Local Time GMT -5",
     "security_active": "Bank-grade 256-bit security active"
+  },
+  "ballot": {
+    "step_label": "Step 01",
+    "title_president": "Presidential Ballot",
+    "subtitle_president": "Select a candidate to represent the executive branch. Your selection is locally encrypted before transmission.",
+    "title_review": "Final Ballot Review",
+    "subtitle_review": "Please verify your selections across all categories before final submission.",
+    "warning_review": "Please review your selections.",
+    "warning_review_bold": "Once submitted, your vote cannot be changed.",
+    "selected_president": "Selected President",
+    "selected_senator": "Selected Senator",
+    "deputies_selection": "Deputies Selection",
+    "unselected_label": "Not yet selected",
+    "select_candidate": "Select Candidate",
+    "modify_selection": "Modify Selection",
+    "positions": {
+      "president": "Presidential",
+      "congressional": "Congressional",
+      "municipal": "Municipal",
+      "senador": "Senator",
+      "diputado": "Deputy",
+      "alcalde": "Alcalde",
+      "regidores": "Regidores",
+      "regidores_hint": "Select one or more"
+    },
+    "candidates": {
+      "elena": "Elena Martínez Rodríguez",
+      "carlos": "Carlos Fernández Medina",
+      "valentina": "Valentina Cruz Sánchez",
+      "abstain": "Abstención / Voto en Blanco",
+      "abstain_label": "None of the above"
+    },
+    "parties": {
+      "pfp": "Partido Fuerza del Pueblo",
+      "prsc": "Partido Reformista Social Cristiano",
+      "prm": "Partido Revolucionario Moderno",
+      "null": "Voto Nulo"
+    },
+    "actions": {
+      "back": "Back",
+      "continue": "Continue",
+      "edit": "Edit",
+      "confirm_vote": "Confirm & Cast Vote",
+      "go_back": "Go Back",
+      "selected": "Selected"
+    },
+    "loading": "Loading ballot from server...",
+    "error_title": "Ballot Error"
+  },
+  "election": {
+    "period_label": "Elections",
+    "select_title": "Select Your Election",
+    "select_subtitle": "You may vote in each active election independently. Select one to begin.",
+    "no_active": "No active elections at this time.",
+    "loading": "Loading available elections...",
+    "load_error": "Failed to load elections",
+    "vote_cast_badge": "Vote Cast",
+    "independent_note": "You may vote in each listed election independently within the same period.",
+    "types": {
+      "PRESIDENTIAL": "Presidential Election",
+      "CONGRESSIONAL": "Congressional Election",
+      "MUNICIPAL": "Municipal Election"
+    },
+    "descriptions": {
+      "PRESIDENTIAL": "Choose the President of the Republic",
+      "CONGRESSIONAL": "Choose your Senator and Deputies",
+      "MUNICIPAL": "Choose your Alcalde and Regidores"
+    }
+  },
+  "review": {
+    "title": "Review Your Ballot",
+    "immutable_warning": "Review your selections carefully.",
+    "immutable_bold": "Once confirmed, your vote cannot be changed.",
+    "crypto_generating": "Generating Cryptographic Keys",
+    "crypto_registering": "Registering Voter Identity",
+    "crypto_wait": "Please wait. This happens once per session.",
+    "crypto_ready_title": "Cryptographic Identity Ready",
+    "crypto_ready_sub": "Your vote will be signed and sealed to the blockchain.",
+    "error_crypto": "Encryption Error",
+    "error_vote": "Vote Submission Failed",
+    "signed_badge": "Signed",
+    "blockchain_badge": "Blockchain Ready",
+    "election_label": "Election",
+    "labels": {
+      "president": "Presidential Choice",
+      "senador": "Senator",
+      "diputado": "Deputy",
+      "alcalde": "Alcalde",
+      "regidores": "Regidores"
+    },
+    "status": {
+      "signing": "Signing Your Vote...",
+      "submitting": "Sealing to Blockchain...",
+      "generating_keys": "Generating Secure Keys...",
+      "registering_keys": "Registering Voter Keys...",
+      "crypto_error": "Encryption Error"
+    }
+  },
+  "vote_success": {
+    "title_line1": "Vote Successfully",
+    "title_line2": "Recorded",
+    "subtitle": "Your civic contribution has been permanently anchored to the distributed ledger. This record is immutable and verifiable.",
+    "blockchain_badge": "Secured by Blockchain",
+    "receipt": {
+      "tx_hash": "Transaction Hash",
+      "timestamp": "Timestamp",
+      "node_status": "Node Status",
+      "block_index": "Block Index",
+      "validating": "Validating",
+      "finalized": "Finalized",
+      "pending": "Pending",
+      "election_type": "Election Type"
+    },
+    "cta_start_over": "Start New Voting Session",
+    "cta_continue_elections": "Continue to Next Election",
+    "pending_title": "You Still Have Elections Pending",
+    "pending_subtitle": "Select an election below to continue your voting session.",
+    "receipt_note": "This receipt is your proof of participation.",
+    "session_terminated": "Your session has been securely terminated. This receipt is your proof of participation.",
+    "footer": {
+      "label": "Official Voting System | Secured by Blockchain",
+      "privacy": "Privacy Policy",
+      "audit": "Security Audit",
+      "help": "Help"
+    }
+  },
+  "post_vote": {
+    "all_complete_title": "All Elections Completed",
+    "all_complete_subtitle": "You have successfully cast your vote in all available elections for this period. Your civic duty is fulfilled.",
+    "all_complete_icon": "task_alt",
+    "cta_finish": "Finish and Return to Home",
+    "confirm_title": "End Voting Session?",
+    "confirm_message": "This will securely clear all session data and return you to the home page. You will need to re-verify your identity to vote again.",
+    "confirm_yes": "Yes, End Session",
+    "confirm_no": "Cancel",
+    "session_cleared": "Session Cleared"
   }
 }

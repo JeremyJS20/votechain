@@ -6,24 +6,24 @@ export const createSession = async (req: Request, res: Response) => {
     const { language, userId, cedula } = req.body
 
     if (!cedula) {
-      return res.status(400).json({ error: 'National identification number (cedula) is required' })
+      return res.status(400).json({ error: 'errors.common.field_required' })
     }
 
     const sessionData = await verificationService.createSession(language, userId, cedula)
     res.json(sessionData)
   } catch (error: any) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: error.message || 'errors.common.unexpected' })
   }
 }
 
 export const getVerificationStatus = async (req: Request, res: Response) => {
   try {
     const { userId } = req.query
-    if (!userId) return res.status(400).json({ error: 'userId is required' })
+    if (!userId) return res.status(400).json({ error: 'errors.common.field_required' })
     const status = await verificationService.getVerificationStatus(userId as string)
     res.json(status)
   } catch (error: any) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: error.message || 'errors.common.unexpected' })
   }
 }
 

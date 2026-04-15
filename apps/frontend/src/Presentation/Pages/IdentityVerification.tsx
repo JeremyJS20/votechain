@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import HttpClient from '../../Infrastructure/HttpClient'
 import TopAppBar from '../Components/Common/TopAppBar'
 import InstitutionalButton from '../Components/Common/InstitutionalButton'
 import InstitutionalModal from '../Components/Common/InstitutionalModal'
+import InstitutionalFooter from '../Components/Common/InstitutionalFooter'
 import { useVerificationContext } from '../Contexts/VerificationContext'
 
 interface IdentityVerificationProps {
@@ -85,7 +85,7 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
         setIsModalOpen(true) // Open validation modal
       }
     } catch (err: any) {
-      setError(err.response?.data?.error || t('identity.errors.generic_error') || 'Verification failed')
+      setError(t(err.response?.data?.error) || t('errors.common.unexpected'));
     } finally {
       setIsLoading(false)
     }
@@ -267,13 +267,7 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
         )}
       </InstitutionalModal>
 
-      <footer className="mt-auto bg-surface py-6 px-10 border-t border-on-surface/5">
-        <div className="flex justify-center items-center">
-          <p className="font-label text-[10px] text-on-surface-variant opacity-40 uppercase tracking-widest text-center">
-            {t('nav.digital_institution')}
-          </p>
-        </div>
-      </footer>
+      <InstitutionalFooter />
     </div>
   )
 }

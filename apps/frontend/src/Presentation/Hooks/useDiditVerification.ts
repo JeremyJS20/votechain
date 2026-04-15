@@ -31,7 +31,7 @@ export const useDiditVerification = () => {
         verification_url = response.verification_url
         setCachedUrl(verification_url)
       } else {
-        console.log('[useDiditVerification] Reusing cached session URL:', verification_url)
+        console.log('[useDiditVerification] Reusing cached session');
       }
       
       // 2. Mock mode hook bypass 
@@ -101,11 +101,11 @@ export const useDiditVerification = () => {
           return
         }
 
-        console.log('[useDiditVerification] Calling startVerification with URL:', verification_url)
+        console.log('[useDiditVerification] Calling startVerification');
         DiditSdk.shared.startVerification({
           url: verification_url,
           configuration: {
-            loggingEnabled: true,
+            loggingEnabled: false,
             embedded: true,
             embeddedContainerId: 'didit-verification-container',
             zIndex: 1000

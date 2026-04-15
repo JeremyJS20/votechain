@@ -23,9 +23,9 @@ export const verifyIdentity = async (req: Request, res: Response) => {
     });
 
   } catch (error: any) {
-    return res.status(401).json({
+    return res.status(error.code || 401).json({
       success: false,
-      error: error.message || 'Verification failed'
+      error: error.message || 'errors.common.unexpected'
     });
   }
 };
