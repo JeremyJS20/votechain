@@ -7,7 +7,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 
-VoteChain is a premium, high-security digital voting application built with **React 18**, **Vite**, and **HeroUI**. Designed as "The Digital Institution," it balances the precision of modern technology with the authoritative weight of civic governance, strictly adhering to **Clean Architecture** principles.
+🏛️ **VoteChain** is an institutional-grade digital voting platform with biometric verification. Built as a university project for a **Software Security** subject, it leverages agentic IDE workflows, Clean Architecture, and is **secured with blockchain technology** to explore the future of autonomous civic governance and the Sovereign Trust design system. 🗳️✨
 
 ---
 
@@ -35,6 +35,7 @@ The application features the **Sovereign Trust** design system, a modern institu
 | **Validation** | [Zod](https://zod.dev/) |
 | **State Management** | React Context API |
 | **i18n** | [react-i18next](https://react.i18next.com/) |
+| **Blockchain** | Custom Implementation (SHA-256 / PoW) |
 
 ---
 
