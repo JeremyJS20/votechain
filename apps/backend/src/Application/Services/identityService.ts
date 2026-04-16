@@ -10,11 +10,11 @@ export class IdentityService {
     });
     
     if (!citizen) {
-      throw new Error('Identity not found in National Registry');
+      throw new Error('errors.identity.not_found');
     }
 
     if (citizen.registrationStatus !== 'VERIFIED') {
-      throw new Error('Identity document is not currently active or verified');
+      throw new Error('errors.identity.not_verified');
     }
 
     return {

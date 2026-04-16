@@ -1,4 +1,49 @@
 {
+  "errors": {
+    "common": {
+      "field_required": "Este campo es obligatorio.",
+      "missing_fields": "Faltan campos obligatorios.",
+      "internal_error": "Error interno del servidor.",
+      "unexpected": "Ha ocurrido un error inesperado.",
+      "unauthorized": "Acceso no autorizado.",
+      "no_auth_voter": "Votante no autenticado. Reinicie el proceso de verificación.",
+      "keys_not_ready": "Claves criptográficas no están listas.",
+      "no_election_selected": "Ninguna elección seleccionada."
+    },
+    "identity": {
+      "cedula_len": "La Cédula debe tener exactamente 11 dígitos.",
+      "numeric_only": "Solo se permiten valores numéricos.",
+      "not_found": "Identidad no encontrada en el Padrón Nacional.",
+      "not_verified": "El documento de identidad no está activo o verificado."
+    },
+    "voting": {
+      "user_not_found": "Usuario no encontrado.",
+      "user_not_verified": "El registro del usuario no está verificado.",
+      "biometric_failed": "Verificación biométrica no aprobada.",
+      "already_voted": "Ya ha votado en esta elección.",
+      "no_public_key": "No hay clave pública registrada. Se requiere registro de clave.",
+      "signature_failed": "Error en la verificación de la firma criptográfica.",
+      "election_not_found": "Elección no encontrada.",
+      "election_inactive": "Esta elección no está activa actualmente.",
+      "unknown_election_type": "Tipo de elección desconocido.",
+      "period_closed": "Este período electoral ha sido cerrado."
+    },
+    "vote": {
+      "congressional_required": "La votación congresional requiere al menos una selección.",
+      "presidential_required": "La votación presidencial requiere seleccionar un candidato.",
+      "regidor_required": "La votación municipal requiere al menos un regidor.",
+      "alcalde_required": "La votación municipal requiere un alcalde.",
+      "signature_required": "Se requiere la firma criptográfica.",
+      "candidate_not_found": "El candidato seleccionado no fue encontrado.",
+      "senador_not_found": "Candidato a Senador no encontrado o no pertenece a su provincia.",
+      "diputado_not_found": "Candidato a Diputado no encontrado o no pertenece a su provincia.",
+      "alcalde_not_found": "Candidato a Alcalde no encontrado o no pertenece a su municipio.",
+      "regidor_not_found": "Candidato a Regidor no encontrado o no pertenece a su municipio."
+    },
+    "keys": {
+      "public_key_required": "Se requiere la clave pública (JWK)."
+    }
+  },
   "common": {
     "login": "Acceso Seguro",
     "verified": "Autenticación",
@@ -84,11 +129,8 @@
     "badges": {
       "live_encryption": "Cifrado en Vivo Activo"
     },
-    "errors": {
-      "cedula_min_error": "La Cédula debe tener exactamente 11 dígitos.",
-      "cedula_max_error": "La Cédula debe tener exactamente 11 dígitos.",
-      "cedula_numeric_error": "Solo se permiten valores numéricos.",
-      "generic_error": "Ocurrió un error durante la verificación. Por favor, intente de nuevo."
+    "badges": {
+      "live_encryption": "Cifrado en Vivo Activo"
     },
     "modal": {
       "title": "Identidad Verificada",
@@ -153,5 +195,141 @@
     "auth_protocol": "Protocolo de Autenticación",
     "local_time": "Hora Local GMT -5",
     "security_active": "Seguridad activa nivel bancario 256-bit"
+  },
+  "ballot": {
+    "step_label": "Paso 01",
+    "title_president": "Boleta Presidencial",
+    "subtitle_president": "Seleccione un candidato para representar el poder ejecutivo. Su elección se cifra localmente antes de la transmisión.",
+    "title_review": "Revisión Final de Boleta",
+    "subtitle_review": "Por favor verifique sus selecciones en todas las categorías antes del envío final.",
+    "warning_review": "Por favor revise sus selecciones.",
+    "warning_review_bold": "Una vez enviado, su voto no se puede cambiar.",
+    "selected_president": "Presidente Seleccionado",
+    "selected_senator": "Senador Seleccionado",
+    "deputies_selection": "Selección de Diputados",
+    "unselected_label": "Aún no seleccionado",
+    "select_candidate": "Seleccionar Candidato",
+    "modify_selection": "Modificar Selección",
+    "positions": {
+      "president": "Presidencial",
+      "congressional": "Congresional",
+      "municipal": "Municipal",
+      "senador": "Senador",
+      "diputado": "Diputado",
+      "alcalde": "Alcalde",
+      "regidores": "Regidores",
+      "regidores_hint": "Seleccione uno o más"
+    },
+    "candidates": {
+      "elena": "Elena Martínez Rodríguez",
+      "carlos": "Carlos Fernández Medina",
+      "valentina": "Valentina Cruz Sánchez",
+      "abstain": "Abstención / Voto en Blanco",
+      "abstain_label": "Ninguno de los anteriores"
+    },
+    "parties": {
+      "pfp": "Partido Fuerza del Pueblo",
+      "prsc": "Partido Reformista Social Cristiano",
+      "prm": "Partido Revolucionario Moderno",
+      "null": "Voto Nulo"
+    },
+    "actions": {
+      "back": "Atrás",
+      "continue": "Continuar",
+      "edit": "Editar",
+      "confirm_vote": "Confirmar y Emitir Voto",
+      "go_back": "Regresar",
+      "selected": "Seleccionado"
+    },
+    "loading": "Cargando boleta desde el servidor...",
+    "error_title": "Error de Boleta"
+  },
+  "election": {
+    "period_label": "Elecciones",
+    "select_title": "Seleccione su Elección",
+    "select_subtitle": "Puede votar en cada elección activa de forma independiente. Seleccione una para comenzar.",
+    "no_active": "No hay elecciones activas en este momento.",
+    "loading": "Cargando elecciones disponibles...",
+    "load_error": "Error al cargar las elecciones",
+    "vote_cast_badge": "Voto Emitido",
+    "independent_note": "Puede votar en cada elección listada de forma independiente dentro del mismo período.",
+    "types": {
+      "PRESIDENTIAL": "Elección Presidencial",
+      "CONGRESSIONAL": "Elección Congresional",
+      "MUNICIPAL": "Elección Municipal"
+    },
+    "descriptions": {
+      "PRESIDENTIAL": "Elija al Presidente de la República",
+      "CONGRESSIONAL": "Elija su Senador y Diputados",
+      "MUNICIPAL": "Elija su Alcalde y Regidores"
+    }
+  },
+  "review": {
+    "title": "Revise su Boleta",
+    "immutable_warning": "Revise cuidadosamente sus selecciones.",
+    "immutable_bold": "Una vez confirmado, su voto no puede modificarse.",
+    "crypto_generating": "Generando Claves Criptográficas",
+    "crypto_registering": "Registrando Identidad del Votante",
+    "crypto_wait": "Por favor espere. Esto ocurre una vez por sesión.",
+    "crypto_ready_title": "Identidad Criptográfica Lista",
+    "crypto_ready_sub": "Su voto será firmado y sellado en la blockchain.",
+    "error_crypto": "Error de Cifrado",
+    "error_vote": "Error al Enviar Voto",
+    "signed_badge": "Firmado",
+    "blockchain_badge": "Blockchain Listo",
+    "election_label": "Elección",
+    "labels": {
+      "president": "Elección Presidencial",
+      "senador": "Senador",
+      "diputado": "Diputado",
+      "alcalde": "Alcalde",
+      "regidores": "Regidores"
+    },
+    "status": {
+      "signing": "Firmando su Voto...",
+      "submitting": "Sellando en Blockchain...",
+      "generating_keys": "Generando Claves Seguras...",
+      "registering_keys": "Registrando Claves del Votante...",
+      "crypto_error": "Error de Cifrado"
+    }
+  },
+  "vote_success": {
+    "title_line1": "Voto Registrado",
+    "title_line2": "Exitosamente",
+    "subtitle": "Su contribución cívica ha sido anclada permanentemente al libro mayor distribuido. Este registro es inmutable y verificable.",
+    "blockchain_badge": "Verificado por Blockchain",
+    "receipt": {
+      "tx_hash": "Hash de Transacción",
+      "timestamp": "Marca de Tiempo",
+      "node_status": "Estado del Nodo",
+      "block_index": "Índice de Bloque",
+      "validating": "Validando",
+      "finalized": "Finalizado",
+      "pending": "Pendiente",
+      "election_type": "Tipo de Elección"
+    },
+    "cta_start_over": "Iniciar Nueva Sesión de Votación",
+    "cta_continue_elections": "Continuar a la Siguiente Elección",
+    "pending_title": "Aún Tiene Elecciones Pendientes",
+    "pending_subtitle": "Seleccione una elección a continuación para continuar su sesión de votación.",
+    "receipt_note": "Este recibo es su prueba de participación.",
+    "session_terminated": "Su sesión ha sido terminada de forma segura. Este recibo es su prueba de participación.",
+    "footer": {
+      "label": "Sistema Oficial de Votación | Verificado por Blockchain",
+      "privacy": "Política de Privacidad",
+      "audit": "Auditoría de Seguridad",
+      "help": "Ayuda"
+    }
+  },
+  "post_vote": {
+    "all_complete_title": "Todas las Elecciones Completadas",
+    "all_complete_subtitle": "Ha emitido su voto exitosamente en todas las elecciones disponibles para este período. Su deber cívico ha sido cumplido.",
+    "all_complete_icon": "task_alt",
+    "cta_finish": "Finalizar y Regresar al Inicio",
+    "confirm_title": "¿Finalizar Sesión de Votación?",
+    "confirm_message": "Esto borrará de forma segura todos los datos de sesión y lo regresará a la página de inicio. Necesitará re-verificar su identidad para votar nuevamente.",
+    "confirm_yes": "Sí, Finalizar Sesión",
+    "confirm_no": "Cancelar",
+    "session_cleared": "Sesión Eliminada"
   }
 }

@@ -59,7 +59,7 @@ export class VerificationService {
       }
 
       const data = await response.json()
-      console.log('[VerificationService] Didit Session Created:', data)
+      console.log('[VerificationService] Didit Session Created:', { id: data.id });
 
       // 3. Pre-persist the session and hash (Status: In Review)
       // This links the biometric session to the validated census data PII-blindly
@@ -108,18 +108,21 @@ export class VerificationService {
    * Returns verbose verification status for polling.
    */
   async getVerificationStatus(userId: string) {
-    if (!userId) throw new Error('userId is required')
+    if (!userId) throw new Error('errors.common.field_required')
 
     let verification = await prisma.verification.findUnique({
       where: { userId }
     })
 
-    // MOCK MODE FALLBACK: If no record exists and we are in mock mode, auto-approve
-    if (!verification && !process.env.DIDIT_API_KEY) {
+    // MOCK MODE FALLBACK: If no real DIDIT_API_KEY is configured, auto-approve.
+    // This covers both cases:
+    //   1. No record exists yet
+    //   2. A record exists but is stuck in "In Review" (created by createSession, webhook never fired)
+    if (!process.env.DIDIT_API_KEY && (!verification || verification.status !== 'Approved')) {
       console.log(`[VerificationService] Mock Mode: Auto-approving user ${userId}`)
       verification = await prisma.verification.upsert({
         where: { userId },
-        update: { status: 'Approved', sessionId: 'mock-session' },
+        update: { status: 'Approved', sessionId: verification?.sessionId || 'mock-session' },
         create: { userId, status: 'Approved', sessionId: 'mock-session' }
       })
     }
@@ -219,12 +222,6 @@ export class VerificationService {
         provider: "didit",
         payloadHash
       }
-    })
-
-    console.log('[VerificationService] Verification updated (Match Enforced):', {
-      userId,
-      status: finalStatus,
-      sessionId
     })
   }
 }

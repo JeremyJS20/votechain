@@ -3,30 +3,104 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
+
+// ─── CITIZEN ─────────────────────────────────────────────────────────────────
 
 model Citizen {
-  id             String   @id @default(uuid())
-  cedula         String   @unique
-  fullName       String
-  dateOfBirth    DateTime
-  gender         String
-  registrationStatus String @default("VERIFIED")
-  lastVerified   DateTime @updatedAt
-  node           String   @default("NODE-04-DR")
+  id                 String   @id @default(uuid())
+  cedula             String   @unique
+  fullName           String
+  dateOfBirth        DateTime
+  gender             String
+  registrationStatus String   @default("VERIFIED")
+  lastVerified       DateTime @updatedAt
+  node               String   @default("NODE-04-DR")
+  province           String   @default("Distrito Nacional")
+  municipality       String   @default("Santo Domingo de Guzmán")
+  publicKey          String?
+  // hasVoted removed — replaced by VoteRecord unique constraint
 }
 
+// ─── VERIFICATION ─────────────────────────────────────────────────────────────
+
 model Verification {
-  id            String   @id @default(cuid())
-  userId        String   @unique
-  sessionId     String
-  status        String   // "Approved" | "Declined" | "In Review"
-  decisionAt    DateTime?
-  provider      String   @default("didit")
-  payloadHash   String?  // optional for integrity
-  cedulaHash    String?  // hashed ID for matching
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id          String    @id @default(cuid())
+  userId      String    @unique
+  sessionId   String
+  status      String    // "Approved" | "Declined" | "In Review"
+  decisionAt  DateTime?
+  provider    String    @default("didit")
+  payloadHash String?
+  cedulaHash  String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// ─── ELECTION PERIOD ─────────────────────────────────────────────────────────
+
+model ElectionPeriod {
+  id          String      @id @default(cuid())
+  year        Int
+  isActive    Boolean     @default(true)
+  elections   Election[]
+  voteRecords VoteRecord[]
+}
+
+// ─── ELECTION ─────────────────────────────────────────────────────────────────
+
+model Election {
+  id         String         @id @default(cuid())
+  type       String         // "PRESIDENTIAL" | "CONGRESSIONAL" | "MUNICIPAL"
+  periodId   String
+  period     ElectionPeriod @relation(fields: [periodId], references: [id])
+  startDate  DateTime
+  endDate    DateTime
+  candidates Candidate[]
+}
+
+// ─── CANDIDATE ───────────────────────────────────────────────────────────────
+
+model Candidate {
+  id           String   @id
+  name         String
+  party        String
+  position     String   // "president" | "mayor" | "regidor" | "senador" | "diputado"
+  province     String?
+  municipality String?
+  electionId   String
+  election     Election @relation(fields: [electionId], references: [id])
+}
+
+// ─── VOTE RECORD ─────────────────────────────────────────────────────────────
+// One record per user per election type per period.
+// The actual vote data lives in the blockchain — only the commitment is stored here.
+
+model VoteRecord {
+  id           String         @id @default(cuid())
+  userId       String
+  electionType String         // denormalized for fast constraint check
+  electionId   String
+  periodId     String
+  period       ElectionPeriod @relation(fields: [periodId], references: [id])
+  voteHash     String
+  blockIndex   Int
+  signature    String
+  votedAt      DateTime       @default(now())
+
+  @@unique([userId, electionType, periodId])
+}
+
+// ─── BLOCKCHAIN ───────────────────────────────────────────────────────────────
+
+model Block {
+  id           String   @id @default(cuid())
+  index        Int      @unique
+  timestamp    DateTime
+  data         String
+  previousHash String
+  hash         String
+  nonce        Int
 }

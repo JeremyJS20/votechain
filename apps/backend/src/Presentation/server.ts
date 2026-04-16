@@ -5,45 +5,76 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Try to load from the process root (monorepo root)
+// Load environment variables (monorepo root first, then backend-specific)
 dotenv.config({ path: path.resolve(process.cwd(), '.env') });
-// Also try to load from the backend directory specifically just in case
 dotenv.config({ path: path.resolve(process.cwd(), 'apps/backend/.env') });
-// Fallback: search specifically for the monorepo root .env from this file's position
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
+
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { identityRouter } from './Routes/identityRoutes.js';
 import { verificationRouter } from './Routes/verificationRoutes.js';
+import { votingRouter } from './Routes/votingRoutes.js';
+import { blockchainRouter } from './Routes/blockchainRoutes.js';
+import { keyRouter } from './Routes/keyRoutes.js';
+import { electionRouter } from './Routes/electionRoutes.js';
 
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middlewares
+// ── Security Headers ─────────────────────────────────────────────────────────
 app.use(helmet());
-app.use(cors());
-app.use(express.json());
 
-// Rate Limiting
-const limiter = rateLimit({
+const corsOptions = {
+  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,
+};
+
+// Handle OPTIONS preflight for all routes
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
+app.use(express.json({ limit: '16kb' }));
+
+// ── Global Rate Limiter ──────────────────────────────────────────────────────
+const globalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per window
+  max: 200,
   standardHeaders: true,
   legacyHeaders: false,
+  message: { error: 'Too many requests. Please try again later.' },
 });
-app.use(limiter);
+app.use(globalLimiter);
 
-// Routes
+// ── Routes ───────────────────────────────────────────────────────────────────
 app.use('/api/v1/identity', identityRouter);
 app.use('/api/v1/verification', verificationRouter);
+app.use('/api/v1/voting', votingRouter);
+app.use('/api/v1/blockchain', blockchainRouter);
+app.use('/api/v1/keys', keyRouter);
+app.use('/api/v1/elections', electionRouter);
 
-// Health Check
-app.get('/health', (req, res) => {
-  res.json({ status: 'active', node: 'Digital Node 04' });
+// ── Health Check ─────────────────────────────────────────────────────────────
+app.get('/health', (_req, res) => {
+  res.json({
+    status: 'active',
+    node: 'Digital Node 04',
+    modules: ['identity', 'verification', 'voting', 'blockchain'],
+    timestamp: new Date().toISOString(),
+  });
 });
 
-app.listen(PORT, () => {
-  console.log(`[VoteChain API] Running on http://localhost:${PORT}`);
-});
+// Only start the server if we are running in development mode.
+// In production (Vercel), we export the app and let Vercel handle the cold start.
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`[VoteChain API] Status: Listening on http://localhost:${PORT}`);
+    console.log(`[VoteChain API] Primary Origin: ${corsOptions.origin}`);
+    console.log(`[VoteChain API] Modules Loaded: identity, verification, voting, blockchain`);
+  });
+}
+
+export default app;
