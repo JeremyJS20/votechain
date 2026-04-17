@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+// useNavigate removed
 import HttpClient from '../../Infrastructure/HttpClient'
 import TopAppBar from '../Components/Common/TopAppBar'
 import InstitutionalButton from '../Components/Common/InstitutionalButton'
@@ -16,13 +16,12 @@ interface IdentityVerificationProps {
 
 const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onSuccess }) => {
   const { t } = useTranslation()
-  const navigate = useNavigate()
-  const { setUserId, setCedula: setPersistentCedula, setUserVerified, resetSession, cedula: initialCedula } = useVerificationContext()
+  const { setUserId, setCedula: setPersistentCedula, resetSession, cedula: initialCedula } = useVerificationContext()
   const [cedula, setLocalCedula] = useState(initialCedula || '')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [civicProfile, setCivicProfile] = useState<any>(null)
-  
+
   // HeroUI v3 utilizes standard state for visibility
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -61,23 +60,15 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
 
   const handleContinue = async () => {
     if (cedula.length !== 11) return
-    
-    // Bypass for test cedula
-    if (cedula === '00000000000') {
-      setUserVerified(true)
-      setUserId('test-bypass-user')
-      navigate('/verification/success', { viewTransition: true })
-      return
-    }
-    
+
     setIsLoading(true)
     setError('')
-    
+
     try {
       const response = await HttpClient.post('/identity/verify', {
         cedula
       })
-      
+
       if (response.data.success) {
         setCivicProfile(response.data.data)
         setUserId(response.data.data.userId)
@@ -106,7 +97,7 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
 
       <main className="flex-grow pt-32 pb-12 px-6 flex flex-col items-center overflow-x-hidden">
         <div className="w-full max-w-lg mt-8">
-          
+
 
           {/* Content Header */}
           <div className="mb-10 text-center sm:text-left">
@@ -136,7 +127,7 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
                   <div className="w-6 h-6 border-2 border-primary/20 border-t-primary rounded-full animate-spin" />
                 )}
               </div>
-              
+
               <div className="mt-4 h-6 flex items-center justify-between">
                 {error ? (
                   <span className="text-error text-[10px] font-bold uppercase tracking-wider">{error}</span>
@@ -173,7 +164,7 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
 
             {/* Action Button */}
             <div className="mt-4 w-full flex flex-col gap-4">
-              <InstitutionalButton 
+              <InstitutionalButton
                 onClick={handleContinue}
                 isDisabled={cedula.length !== 11 || isLoading || isModalOpen}
                 className="w-full text-lg h-16 py-0 shadow-[0_20px_40px_rgba(20,27,44,0.06)]"
@@ -189,9 +180,9 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
                   )}
                 </div>
               </InstitutionalButton>
-              
+
               <div className="flex items-center justify-center gap-6 mt-2">
-                <button 
+                <button
                   onClick={() => { resetSession(); onBack(); }}
                   disabled={isLoading || isModalOpen}
                   className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] font-bold uppercase tracking-widest opacity-60 hover:opacity-100"
@@ -199,11 +190,11 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
                   <span className="material-symbols text-lg">close</span>
                   <span>{t('nav.cancel')}</span>
                 </button>
-                
+
                 <div className="w-px h-3 bg-on-surface/10" />
 
-                <button 
-                  onClick={() => {/* Help logic */}}
+                <button
+                  onClick={() => {/* Help logic */ }}
                   disabled={isLoading || isModalOpen}
                   className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] font-bold uppercase tracking-widest opacity-60 hover:opacity-100"
                 >
@@ -257,11 +248,11 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
                 </div>
               </div>
             </div>
-            
+
             {/* Secure Timestamp */}
             <div className="flex items-center justify-center gap-2 mt-4 opacity-70">
               <span className="material-symbols text-[12px] text-on-surface-variant">lock_clock</span>
-              <p className="text-[9px] font-mono text-on-surface-variant tracking-widest uppercase">{t('identity.modal.secure_session')} • {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
+              <p className="text-[9px] font-mono text-on-surface-variant tracking-widest uppercase">{t('identity.modal.secure_session')} • {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
             </div>
           </div>
         )}

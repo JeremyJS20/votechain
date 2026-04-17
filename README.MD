@@ -1,13 +1,11 @@
-# ✨ VoteChain
+# 🏛️ VoteChain
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.0%2B-blue?logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.0-646CFF?logo=vite)](https://vitejs.dev/)
-[![HeroUI](https://img.shields.io/badge/HeroUI-v3-00B8D9?logo=heroui)](https://heroui.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Blockchain](https://img.shields.io/badge/Security-Blockchain-blueviolet?logo=blockchain-dot-com)](https://github.com/JeremyJS20/votechain)
 
-🏛️ **VoteChain** is an institutional-grade digital voting platform with biometric verification. Built as a university project for a **Software Security** subject, it leverages agentic IDE workflows, Clean Architecture, and is **secured with blockchain technology** to explore the future of autonomous civic governance and the Sovereign Trust design system. 🗳️✨
+VoteChain is an institutional-grade digital voting platform with biometric verification. Developed for a **Software Security subject**, this project leverages **blockchain technology** for secure, immutable record-keeping, agentic IDE workflows, and Clean Architecture to explore the future of autonomous civic governance and the Sovereign Trust design system. 🗳️✨
 
 ---
 
@@ -35,7 +33,6 @@ The application features the **Sovereign Trust** design system, a modern institu
 | **Validation** | [Zod](https://zod.dev/) |
 | **State Management** | React Context API |
 | **i18n** | [react-i18next](https://react.i18next.com/) |
-| **Blockchain** | Custom Implementation (SHA-256 / PoW) |
 
 ---
 

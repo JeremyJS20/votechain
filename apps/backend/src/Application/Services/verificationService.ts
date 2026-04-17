@@ -36,7 +36,7 @@ export class VerificationService {
       }
 
       // 2. Pass expected details to Didit for matching (Advanced Matching)
-      if (cedula) {
+      if (cedula && process.env.NODE_ENV === 'production') {
         payload.expected_details = {
           identification_number: cedula
         }
