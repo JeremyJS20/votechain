@@ -162,10 +162,11 @@ export class VerificationService {
       console.warn('[VerificationService] Webhook Signature Mismatch:', {
         received: signature,
         expected,
-        fields: {
-          sessionId: sessionId ? 'present' : 'missing',
-          status: status ? 'present' : 'missing',
-          createdAt: createdAt ? 'present' : 'missing'
+        availableFields: Object.keys(body),
+        valuesMasked: {
+          sessionId: sessionId ? 'present' : 'MISSING',
+          status: status ? 'present' : 'MISSING',
+          createdAt: createdAt ? 'present' : 'MISSING'
         }
       })
     }
