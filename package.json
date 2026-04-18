@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "npm run dev --workspace=@votechain/frontend",
     "dev:backend": "npm run dev --workspace=@votechain/backend",
-    "vercel-build": "npm run build --workspace=@votechain/common && npm run build --workspace=@votechain/frontend"
+    "vercel-build": "npx prisma generate --schema=apps/backend/prisma/schema.prisma && npm run build --workspace=@votechain/common && npm run build --workspace=@votechain/frontend"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
