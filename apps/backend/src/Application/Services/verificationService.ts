@@ -148,12 +148,14 @@ export class VerificationService {
       return false
     }
 
-    // Didit v3 X-Signature-Simple is HMAC-SHA256 of session_id|status|created_at
-    const sessionId = body.session_id || body.id
-    const status = body.status
-    const createdAt = body.created_at
+    // Didit v3 X-Signature-Simple is HMAC-SHA256 of timestamp:session_id:status:webhook_type
+    const data = [
+      body.timestamp || "",
+      body.session_id || "",
+      body.status || "",
+      body.webhook_type || ""
+    ].join(":")
 
-    const data = `${sessionId}|${status}|${createdAt}`
     const expected = crypto.createHmac('sha256', secret).update(data).digest('hex')
 
     const isValid = signature === expected
