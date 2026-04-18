@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
 import InstitutionalModal from '@/Presentation/Components/Common/InstitutionalModal'
 import HelpModal, { HelpContext } from '@/Presentation/Components/Common/HelpModal'
-import { motion } from 'framer-motion'
 
 interface NavItemProps {
   label: string

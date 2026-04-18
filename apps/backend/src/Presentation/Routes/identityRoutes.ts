@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { verifyIdentity } from '@/Presentation/Controllers/identityController.js';
+import { verifyIdentity } from '../Controllers/identityController.js';
 
 const router = Router();
 

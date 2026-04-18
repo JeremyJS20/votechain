@@ -14,13 +14,13 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
-import { identityRouter } from '@/Presentation/Routes/identityRoutes.js';
-import { verificationRouter } from '@/Presentation/Routes/verificationRoutes.js';
-import { votingRouter } from '@/Presentation/Routes/votingRoutes.js';
-import { blockchainRouter } from '@/Presentation/Routes/blockchainRoutes.js';
-import { keyRouter } from '@/Presentation/Routes/keyRoutes.js';
-import { electionRouter } from '@/Presentation/Routes/electionRoutes.js';
-import { authMiddleware } from '@/Presentation/Middleware/authMiddleware.js';
+import { identityRouter } from './Routes/identityRoutes.js';
+import { verificationRouter } from './Routes/verificationRoutes.js';
+import { votingRouter } from './Routes/votingRoutes.js';
+import { blockchainRouter } from './Routes/blockchainRoutes.js';
+import { keyRouter } from './Routes/keyRoutes.js';
+import { electionRouter } from './Routes/electionRoutes.js';
+import { authMiddleware } from './Middleware/authMiddleware.js';
 
 
 export const app = express();

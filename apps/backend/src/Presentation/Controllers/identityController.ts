@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IdentityService } from '@/Application/Services/identityService.js';
+import { IdentityService } from '../../Application/Services/identityService.js';
 import { IdentitySchema } from '@votechain/common';
 
 const identityService = new IdentityService();
