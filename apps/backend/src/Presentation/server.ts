@@ -24,6 +24,7 @@ import { authMiddleware } from './Middleware/authMiddleware.js';
 
 
 export const app = express();
+app.set('trust proxy', 1); // Trust Vercel proxy
 const PORT = process.env.PORT || 3001;
 
 // ── Security Headers ─────────────────────────────────────────────────────────
