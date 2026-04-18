@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { electionService } from '../../Application/Services/electionService.js';
+import { electionService } from '@/Application/Services/electionService.js';
 
 // ─── GET ACTIVE ELECTIONS ────────────────────────────────────────────────────
 

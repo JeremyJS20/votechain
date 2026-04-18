@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getActiveElections, getUserElectionStatus } from '../Controllers/electionController.js';
+import { getActiveElections, getUserElectionStatus } from '@/Presentation/Controllers/electionController.js';
 
 export const electionRouter = Router();
 

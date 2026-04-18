@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { registerPublicKey } from '../Controllers/keyController.js';
+import { registerPublicKey } from '@/Presentation/Controllers/keyController.js';
 
 export const keyRouter = Router();
 

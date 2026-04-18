@@ -23,12 +23,12 @@ const VerificationContext = createContext<VerificationContextState | undefined>(
 export const VerificationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [verificationStatus, setVerificationStatus] = useState<VerificationStatus>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
-  const [userVerified, setUserVerified] = useState<boolean>(false)
   const [cachedUrl, setCachedUrl] = useState<string | null>(null)
   
-  // Initialize from sessionStorage to handle refreshes during verification
+  // Initialize from sessionStorage to handle refreshes
   const [userId, setUserId] = useState<string | null>(() => sessionStorage.getItem('votechain_user_id'))
   const [cedula, setCedula] = useState<string | null>(() => sessionStorage.getItem('votechain_cedula'))
+  const [userVerified, setUserVerified] = useState<boolean>(() => sessionStorage.getItem('votechain_verified') === 'true')
 
   // Persist to sessionStorage whenever they change
   useEffect(() => {
@@ -41,6 +41,10 @@ export const VerificationProvider: React.FC<{ children: ReactNode }> = ({ childr
     else sessionStorage.removeItem('votechain_cedula')
   }, [cedula])
 
+  useEffect(() => {
+    sessionStorage.setItem('votechain_verified', String(userVerified))
+  }, [userVerified])
+
   const resetSession = () => {
     setVerificationStatus('idle')
     setErrorMessage(null)
@@ -50,6 +54,8 @@ export const VerificationProvider: React.FC<{ children: ReactNode }> = ({ childr
     setCedula(null)
     sessionStorage.removeItem('votechain_user_id')
     sessionStorage.removeItem('votechain_cedula')
+    sessionStorage.removeItem('votechain_verified')
+    sessionStorage.removeItem('votechain_selections')
   }
 
   return (

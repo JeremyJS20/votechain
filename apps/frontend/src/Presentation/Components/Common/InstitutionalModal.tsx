@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Modal, ModalBackdrop, ModalContainer, ModalDialog, ModalHeader, ModalBody, ModalFooter, ModalHeading, ModalIcon } from '@heroui/react'
 import { motion } from 'framer-motion'
-import InstitutionalButton from './InstitutionalButton'
+import InstitutionalButton from '@/Presentation/Components/Common/InstitutionalButton'
 
 interface InstitutionalModalProps {
   isOpen: boolean
@@ -14,6 +14,10 @@ interface InstitutionalModalProps {
   actionText?: string
   actionIcon?: string
   onAction?: () => void
+  secondaryActionText?: string
+  secondaryActionIcon?: string
+  onSecondaryAction?: () => void
+  maxWidthClassName?: string
 }
 
 const badgeStyles = {
@@ -48,13 +52,17 @@ const InstitutionalModal: React.FC<InstitutionalModalProps> = ({
   children,
   actionText,
   actionIcon,
-  onAction
+  onAction,
+  secondaryActionText,
+  secondaryActionIcon,
+  onSecondaryAction,
+  maxWidthClassName = 'max-w-md'
 }) => {
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
       <ModalBackdrop className="bg-[#141b2c]/40 backdrop-blur-xl flex items-center justify-center p-4">
         <ModalContainer className="w-full flex justify-center">
-          <ModalDialog className="bg-surface-container-low backdrop-blur-2xl border border-on-surface/5 shadow-[0_20px_40px_rgba(20,27,44,0.08)] rounded-[2rem] p-6 w-full max-w-md overflow-hidden relative outline-none">
+          <ModalDialog className={`bg-surface-container-low backdrop-blur-2xl border border-on-surface/5 shadow-[0_20px_40px_rgba(20,27,44,0.08)] rounded-[2rem] p-6 w-full ${maxWidthClassName} overflow-hidden relative outline-none`}>
             <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 ${glowStyles[statusPulse || 'none']} blur-[60px] rounded-full pointer-events-none`} />
 
             <ModalHeader className="flex flex-col gap-3 items-center pt-6 pb-6 border-b border-on-surface/5 relative z-10 w-full bg-transparent">
@@ -85,14 +93,33 @@ const InstitutionalModal: React.FC<InstitutionalModalProps> = ({
               {children}
             </ModalBody>
             
-            {actionText && onAction && (
-              <ModalFooter className="pt-2 pb-2 border-t border-transparent relative z-10 w-full px-2 mt-auto bg-transparent">
-                <InstitutionalButton onClick={onAction} className="w-full">
-                  <span className="flex items-center gap-2 justify-center w-full">
-                    <span>{actionText}</span>
-                    {actionIcon && <span className="material-symbols text-xl">{actionIcon}</span>}
-                  </span>
-                </InstitutionalButton>
+            {(actionText || secondaryActionText) && (
+              <ModalFooter className="pt-2 pb-6 border-t border-transparent relative z-10 w-full px-2 mt-auto bg-transparent">
+                <div className="flex flex-col w-full gap-3">
+                  {actionText && onAction && (
+                    <InstitutionalButton 
+                      onClick={onAction} 
+                      className="w-full !min-h-[56px]"
+                    >
+                      <span className="flex items-center gap-2 justify-center w-full">
+                        <span>{actionText}</span>
+                        {actionIcon && <span className="material-symbols text-xl">{actionIcon}</span>}
+                      </span>
+                    </InstitutionalButton>
+                  )}
+                  {secondaryActionText && (
+                    <InstitutionalButton 
+                      variant="flat" 
+                      onClick={onSecondaryAction || (() => onOpenChange(false))}
+                      className="w-full !min-h-[56px]"
+                    >
+                      <span className="flex items-center gap-2 justify-center w-full">
+                        {secondaryActionIcon && <span className="material-symbols text-xl">{secondaryActionIcon}</span>}
+                        <span>{secondaryActionText}</span>
+                      </span>
+                    </InstitutionalButton>
+                  )}
+                </div>
               </ModalFooter>
             )}
           </ModalDialog>

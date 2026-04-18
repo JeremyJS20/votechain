@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DiditSdk } from '@didit-protocol/sdk-web'
-import { VerificationService } from '../../Infrastructure/Services/VerificationService'
-import { useVerificationContext } from '../Contexts/VerificationContext'
+import { VerificationService } from '@/Infrastructure/Services/VerificationService'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
 
 export const useDiditVerification = () => {
   const { i18n } = useTranslation()

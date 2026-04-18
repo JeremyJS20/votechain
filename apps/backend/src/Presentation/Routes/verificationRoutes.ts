@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createSession, getVerificationStatus, handleWebhook } from '../Controllers/verificationController.js'
+import { createSession, getVerificationStatus, handleWebhook } from '@/Presentation/Controllers/verificationController.js'
 
 export const verificationRouter = Router()
 

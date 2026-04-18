@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { votingService } from '../../Application/Services/votingService.js';
+import { votingService } from '@/Application/Services/votingService.js';
 
 // ─── REGISTER PUBLIC KEY ──────────────────────────────────────────────────────
 

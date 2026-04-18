@@ -4,9 +4,10 @@ import React, {
   useState,
   useCallback,
   ReactNode,
+  useEffect,
 } from 'react';
-import { VotingService, type BallotResponse } from '../../Infrastructure/Services/VotingService';
-import { useVerificationContext } from './VerificationContext';
+import { VotingService, type BallotResponse } from '@/Infrastructure/Services/VotingService';
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext';
 import type { Candidate } from '@votechain/common';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -68,7 +69,17 @@ export const BallotProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [ballotLoadStatus, setBallotLoadStatus] = useState<BallotLoadStatus>('idle');
   const [ballotError, setBallotError]         = useState<string | null>(null);
   const [hasVoted, setHasVoted]               = useState(false);
-  const [selections, setSelections]           = useState<SelectionMap>({});
+
+  // Initialize selections from sessionStorage to recover from reloads
+  const [selections, setSelections] = useState<SelectionMap>(() => {
+    const saved = sessionStorage.getItem('votechain_selections');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  // Persist selections whenever they change
+  useEffect(() => {
+    sessionStorage.setItem('votechain_selections', JSON.stringify(selections));
+  }, [selections]);
 
   // ── Load ballot from server ────────────────────────────────────────────────
   const loadBallot = useCallback(async (electionId: string) => {
@@ -86,7 +97,15 @@ export const BallotProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       setPeriodYear(ballot.period.year);
       setCandidates(ballot.candidates);
       setHasVoted(ballot.hasVoted);
-      setSelections({});
+      
+      // Keep existing selections if electionId matches, otherwise clear
+      // This allows recovery on SAME election reload, but clears for new ones
+      const saved = sessionStorage.getItem('votechain_selections_eid');
+      if (saved !== electionId) {
+        setSelections({});
+      }
+      sessionStorage.setItem('votechain_selections_eid', electionId);
+      
       setBallotLoadStatus('loaded');
     } catch (err: any) {
       const msg = err?.response?.data?.error || 'errors.common.unexpected';
@@ -122,6 +141,8 @@ export const BallotProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     setSelections({});
     setBallotLoadStatus('idle');
     setHasVoted(false);
+    sessionStorage.removeItem('votechain_selections');
+    sessionStorage.removeItem('votechain_selections_eid');
   }, []);
 
   // ── Completeness check per election type ──────────────────────────────────

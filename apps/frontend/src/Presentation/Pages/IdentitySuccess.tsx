@@ -2,9 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import TopAppBar from '../Components/Common/TopAppBar'
-import InstitutionalFooter from '../Components/Common/InstitutionalFooter'
-import { useVerificationContext } from '../Contexts/VerificationContext'
+import TopAppBar from '@/Presentation/Components/Common/TopAppBar'
+import InstitutionalFooter from '@/Presentation/Components/Common/InstitutionalFooter'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
 
 const IdentitySuccess: React.FC = () => {
   const { t } = useTranslation()

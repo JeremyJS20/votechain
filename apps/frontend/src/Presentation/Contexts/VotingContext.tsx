@@ -11,10 +11,10 @@ import {
   exportPublicKeyAsJwk,
   signVote,
   VoterKeyPair,
-} from '../../Infrastructure/Services/CryptoService';
-import { VotingService } from '../../Infrastructure/Services/VotingService';
-import { useVerificationContext } from './VerificationContext';
-import { useBallot } from './BallotContext';
+} from '@/Infrastructure/Services/CryptoService';
+import { VotingService } from '@/Infrastructure/Services/VotingService';
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext';
+import { useBallot } from '@/Presentation/Contexts/BallotContext';
 import type { VoteReceipt } from '@votechain/common';
 
 // ── Types ─────────────────────────────────────────────────────────────────────

@@ -3,7 +3,7 @@ import {
   validateBlockchain,
   getFullChain,
   getBlockchainHash,
-} from '../Controllers/blockchainController.js';
+} from '@/Presentation/Controllers/blockchainController.js';
 
 export const blockchainRouter = Router();
 

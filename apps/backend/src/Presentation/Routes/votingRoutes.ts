@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
-import { submitVote, getBallot, getResults } from '../Controllers/votingController.js';
+import { submitVote, getBallot, getResults } from '@/Presentation/Controllers/votingController.js';
 
 const voteRateLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,

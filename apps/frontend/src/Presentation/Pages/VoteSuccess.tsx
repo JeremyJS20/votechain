@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useVerificationContext } from '../Contexts/VerificationContext'
-import { VotingService, type ElectionStatusItem } from '../../Infrastructure/Services/VotingService'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
+import { VotingService, type ElectionStatusItem } from '@/Infrastructure/Services/VotingService'
 import type { VoteReceipt } from '@votechain/common'
-import TopAppBar from '../Components/Common/TopAppBar'
-import InstitutionalFooter from '../Components/Common/InstitutionalFooter'
+import TopAppBar from '@/Presentation/Components/Common/TopAppBar'
+import InstitutionalModal from '@/Presentation/Components/Common/InstitutionalModal'
+import InstitutionalFooter from '@/Presentation/Components/Common/InstitutionalFooter'
 
 interface LocationState {
   receipt: VoteReceipt
@@ -330,52 +331,21 @@ const VoteSuccess: React.FC = () => {
       </main>
 
       {/* ── CONFIRMATION MODAL ───────────────────────────────────────────── */}
-      <AnimatePresence>
-        {showConfirm && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center"
-          >
-            <div
-              className="absolute inset-0 bg-scrim/60 backdrop-blur-sm"
-              onClick={() => setShowConfirm(false)}
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 20 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative bg-surface-container-lowest rounded-2xl shadow-2xl p-10 max-w-md w-full mx-4 z-10"
-            >
-              <div className="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mx-auto mb-6">
-                <span className="material-symbols text-primary text-3xl">shield_lock</span>
-              </div>
-              <h2 className="font-display font-bold text-2xl text-on-surface text-center mb-3">
-                {t('post_vote.confirm_title')}
-              </h2>
-              <p className="text-secondary text-center text-sm leading-relaxed mb-10">
-                {t('post_vote.confirm_message')}
-              </p>
-              <div className="flex flex-col gap-3">
-                <button
-                  onClick={handleFinishSession}
-                  className="w-full bg-gradient-primary text-on-primary font-display font-bold text-base py-4 rounded-xl transition-all active:scale-[0.98] shadow-institutional hover:opacity-90"
-                >
-                  {t('post_vote.confirm_yes')}
-                </button>
-                <button
-                  onClick={() => setShowConfirm(false)}
-                  className="w-full text-secondary font-display font-bold text-base py-4 rounded-xl border border-outline-variant/20 hover:bg-surface-container-low transition-colors active:scale-[0.98]"
-                >
-                  {t('post_vote.confirm_no')}
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <InstitutionalModal
+        isOpen={showConfirm}
+        onOpenChange={setShowConfirm}
+        icon="shield_lock"
+        title={t('post_vote.confirm_title')}
+        statusPulse="warning"
+        secondaryActionText={t('post_vote.confirm_no')}
+        onSecondaryAction={() => setShowConfirm(false)}
+        actionText={t('post_vote.confirm_yes')}
+        onAction={handleFinishSession}
+      >
+        <p className="text-secondary text-center text-sm leading-relaxed px-4">
+          {t('post_vote.confirm_message')}
+        </p>
+      </InstitutionalModal>
 
       <InstitutionalFooter className="mt-auto" />
     </div>

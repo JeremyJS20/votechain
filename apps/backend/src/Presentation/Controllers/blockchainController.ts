@@ -3,7 +3,7 @@ import {
   getChain,
   validateChain,
   getLatestBlockHash,
-} from '../../Application/Services/blockchainService.js';
+} from '@/Application/Services/blockchainService.js';
 
 // ─── VALIDATE CHAIN ───────────────────────────────────────────────────────────
 
