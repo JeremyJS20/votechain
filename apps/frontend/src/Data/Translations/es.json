@@ -88,11 +88,11 @@
       "node_status": "Conectividad de Nodo Quantum-Resistant",
       "blockchain_record": "Registro Inmutable Blockchain",
       "audit_ready": "Certificado para Auditoría",
-      "node_tag": "Junta Central Electoral | Nodo Digital 04"
+      "node_tag": "VoteChain | Nodo Digital 04"
     }
   },
   "footer": {
-    "institution": "Junta Central Electoral",
+    "institution": "VoteChain",
     "institution_sub": "República Dominicana | Institución Digital",
     "mission": "Líder global en infraestructura democrática basada en blockchain y gobernanza digital.",
     "links": {
@@ -106,7 +106,7 @@
       "accessibility": "Accesibilidad",
       "contact": "Contactar Nodo"
     },
-    "copyright": "© 2024 Junta Central Electoral. Todos los derechos reservados. Sistema Verificado por Blockchain."
+    "copyright": "© 2024 VoteChain. Todos los derechos reservados. Sistema Verificado por Blockchain."
   },
   "identity": {
     "step_label": "Paso 01 de 04",
@@ -184,7 +184,7 @@
     "citizen_label": "Nombre del Ciudadano",
     "session_label": "ID de Sesión Segura",
     "timestamp_label": "Autenticado en",
-    "issued_by": "Emitido por la Junta Central Electoral",
+    "issued_by": "Emitido por VoteChain",
     "cta_proceed": "Proceder al Voto",
     "badge": "Autenticación Exitosa",
     "monument_authorized": "Digitalmente Autorizado",
