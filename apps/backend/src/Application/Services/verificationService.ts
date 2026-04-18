@@ -143,8 +143,18 @@ export class VerificationService {
     if (!secret) return true // Allow if secret is not configured (dev mode)
 
     const signature = headers['x-signature-simple']
-    if (!signature) {
-      console.warn('[VerificationService] Missing X-Signature-Simple header')
+    const timestampHeader = headers['x-timestamp']
+
+    if (!signature || !timestampHeader) {
+      console.warn('[VerificationService] Missing required webhook headers')
+      return false
+    }
+
+    // 1. Check timestamp freshness (within 5 minutes)
+    const currentTime = Math.floor(Date.now() / 1000)
+    const incomingTime = parseInt(timestampHeader as string, 10)
+    if (isNaN(incomingTime) || Math.abs(currentTime - incomingTime) > 300) {
+      console.warn('[VerificationService] Webhook Stale or Invalid Timestamp')
       return false
     }
 
