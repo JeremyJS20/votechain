@@ -149,7 +149,7 @@ export class VerificationService {
     }
 
     // Didit v3 X-Signature-Simple is HMAC-SHA256 of session_id|status|created_at
-    const sessionId = body.id || body.session_id
+    const sessionId = body.session_id || body.id
     const status = body.status
     const createdAt = body.created_at
 
