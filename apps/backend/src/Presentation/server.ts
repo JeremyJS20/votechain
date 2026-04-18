@@ -40,7 +40,7 @@ const corsOptions = {
 // Handle OPTIONS preflight for all routes
 app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
-app.use(express.json({ limit: '16kb' }));
+app.use(express.json({ limit: '1mb' }));
 
 // ── Global Rate Limiter ──────────────────────────────────────────────────────
 const globalLimiter = rateLimit({

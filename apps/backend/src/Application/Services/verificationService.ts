@@ -156,7 +156,21 @@ export class VerificationService {
     const data = `${sessionId}|${status}|${createdAt}`
     const expected = crypto.createHmac('sha256', secret).update(data).digest('hex')
 
-    return signature === expected
+    const isValid = signature === expected
+
+    if (!isValid) {
+      console.warn('[VerificationService] Webhook Signature Mismatch:', {
+        received: signature,
+        expected,
+        fields: {
+          sessionId: sessionId ? 'present' : 'missing',
+          status: status ? 'present' : 'missing',
+          createdAt: createdAt ? 'present' : 'missing'
+        }
+      })
+    }
+
+    return isValid
   }
 
   /**
