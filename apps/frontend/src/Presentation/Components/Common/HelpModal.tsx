@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Accordion, AccordionItem } from '@heroui/react'
+import { Accordion, AccordionItem, AccordionHeading, AccordionTrigger, AccordionPanel } from '@heroui/react'
 import InstitutionalModal from './InstitutionalModal'
 
 export type HelpContext = 'identity' | 'ballot' | 'success' | 'general'
@@ -55,35 +55,29 @@ const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onOpenChange, context = '
     >
       <div className="px-1 pb-4">
         <Accordion 
-          variant="highlight"
+          variant="surface"
           defaultExpandedKeys={[getDefaultExpandedKey()]}
-          itemClasses={{
-            base: "py-0 w-full border-b border-on-surface/5 last:border-none",
-            title: "font-display font-bold text-on-surface text-lg",
-            trigger: "px-4 py-6 data-[hover=true]:bg-surface-container-low rounded-xl flex items-center transition-colors",
-            indicator: "text-primary text-xl",
-            content: "px-4 pb-8 pt-0 text-secondary leading-relaxed"
-          }}
         >
           {sections.map((key) => (
-            <AccordionItem
-              key={key}
-              aria-label={t(`help_modal.sections.${key}.title`)}
-              title={t(`help_modal.sections.${key}.title`)}
-              startContent={
-                <span className="material-symbols text-primary opacity-60 text-2xl mr-3">
-                  {key.startsWith('overview') && 'info'}
-                  {key === 'identity' && 'badge'}
-                  {key === 'voting' && 'how_to_vote'}
-                  {key === 'security' && 'shield_lock'}
-                  {key.startsWith('troubleshooting') && 'build'}
-                </span>
-              }
-            >
-              <div 
-                className="prose prose-base max-w-none text-secondary !text-on-surface/80"
-                dangerouslySetInnerHTML={{ __html: t(`help_modal.sections.${key}.content`) }} 
-              />
+            <AccordionItem key={key} id={key}>
+              <AccordionHeading>
+                <AccordionTrigger className="w-full text-left font-display font-bold text-on-surface text-lg px-4 py-6 hover:bg-surface-container-low rounded-xl flex items-center transition-colors">
+                  <span className="material-symbols text-primary opacity-60 text-2xl mr-3">
+                    {key.startsWith('overview') && 'info'}
+                    {key === 'identity' && 'badge'}
+                    {key === 'voting' && 'how_to_vote'}
+                    {key === 'security' && 'shield_lock'}
+                    {key.startsWith('troubleshooting') && 'build'}
+                  </span>
+                  {t(`help_modal.sections.${key}.title`)}
+                </AccordionTrigger>
+              </AccordionHeading>
+              <AccordionPanel className="px-4 pb-8 pt-0 text-secondary leading-relaxed">
+                <div 
+                  className="prose prose-base max-w-none text-secondary !text-on-surface/80"
+                  dangerouslySetInnerHTML={{ __html: t(`help_modal.sections.${key}.content`) }} 
+                />
+              </AccordionPanel>
             </AccordionItem>
           ))}
         </Accordion>

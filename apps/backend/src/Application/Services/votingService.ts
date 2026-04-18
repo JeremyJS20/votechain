@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client';
-import { verifySignature, sha256 } from '@/Application/Services/cryptoService.js';
-import { addBlock } from '@/Application/Services/blockchainService.js';
-import { electionService } from '@/Application/Services/electionService.js';
-import { ballotService } from '@/Application/Services/ballotService.js';
-import { verificationService } from '@/Application/Services/verificationService.js';
+import { verifySignature, sha256 } from './cryptoService.js';
+import { addBlock } from './blockchainService.js';
+import { electionService } from './electionService.js';
+import { ballotService } from './ballotService.js';
+import { verificationService } from './verificationService.js';
 
 const prisma = new PrismaClient();
 

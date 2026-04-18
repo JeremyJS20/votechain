@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { verificationService } from '@/Application/Services/verificationService.js'
+import { verificationService } from '../../Application/Services/verificationService.js'
 
 export const createSession = async (req: Request, res: Response) => {
   try {

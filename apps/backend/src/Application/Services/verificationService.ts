@@ -174,10 +174,10 @@ export class VerificationService {
       console.warn('[VerificationService] Webhook Signature Mismatch:', {
         availableFields: Object.keys(body),
         validationParams: {
-          sessionIdType: typeof sessionId,
-          statusType: typeof status,
-          createdAtType: typeof createdAt,
-          construct: `${sessionId?.toString().replace(/./g, '*')}|${status}|${createdAt}` 
+          sessionIdType: typeof body.session_id,
+          statusType: typeof body.status,
+          createdAtType: typeof body.created_at,
+          construct: data.replace(/./g, '*')
         },
         received: signature,
         expected
