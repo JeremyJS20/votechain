@@ -53,28 +53,40 @@ const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onOpenChange, context = '
       onAction={() => onOpenChange(false)}
       maxWidthClassName="max-w-3xl"
     >
-      <div className="px-1 pb-4">
+      <div className="px-0 pb-4">
         <Accordion 
-          variant="surface"
+          variant="default"
           defaultExpandedKeys={[getDefaultExpandedKey()]}
+          className="flex flex-col gap-0 p-0"
         >
           {sections.map((key) => (
-            <AccordionItem key={key} id={key}>
+            <AccordionItem 
+              key={key} 
+              id={key}
+              className="m-0 p-0 border-b border-on-surface/5 last:border-none focus-within:bg-on-surface/[0.02] transition-colors duration-200"
+            >
               <AccordionHeading>
-                <AccordionTrigger className="w-full text-left font-display font-bold text-on-surface text-lg px-4 py-6 hover:bg-surface-container-low rounded-xl flex items-center transition-colors">
-                  <span className="material-symbols text-primary opacity-60 text-2xl mr-3">
-                    {key.startsWith('overview') && 'info'}
-                    {key === 'identity' && 'badge'}
-                    {key === 'voting' && 'how_to_vote'}
-                    {key === 'security' && 'shield_lock'}
-                    {key.startsWith('troubleshooting') && 'build'}
+                <AccordionTrigger className="w-full text-left font-display font-semibold text-on-surface/90 text-lg px-4 py-5 flex items-center justify-between group focus:outline-none">
+                  <div className="flex items-center gap-4">
+                    <span className="material-symbols text-primary opacity-60 text-2xl group-data-[expanded=true]:opacity-100 transition-opacity">
+                      {key.startsWith('overview') && 'info'}
+                      {key === 'identity' && 'badge'}
+                      {key === 'voting' && 'how_to_vote'}
+                      {key === 'security' && 'shield_lock'}
+                      {key.startsWith('troubleshooting') && 'build'}
+                    </span>
+                    <span className="group-data-[expanded=true]:text-on-surface transition-colors">
+                      {t(`help_modal.sections.${key}.title`)}
+                    </span>
+                  </div>
+                  <span className="material-symbols text-xl opacity-20 group-data-[expanded=true]:rotate-180 group-data-[expanded=true]:opacity-100 group-data-[expanded=true]:text-primary transition-all duration-300">
+                    expand_more
                   </span>
-                  {t(`help_modal.sections.${key}.title`)}
                 </AccordionTrigger>
               </AccordionHeading>
-              <AccordionPanel className="px-4 pb-8 pt-0 text-secondary leading-relaxed">
+              <AccordionPanel className="px-4 pb-8 pt-0">
                 <div 
-                  className="prose prose-base max-w-none text-secondary !text-on-surface/80"
+                  className="prose prose-base max-w-none text-on-surface/60 leading-relaxed font-body pl-10"
                   dangerouslySetInnerHTML={{ __html: t(`help_modal.sections.${key}.content`) }} 
                 />
               </AccordionPanel>
