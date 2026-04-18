@@ -20,6 +20,8 @@ import { votingRouter } from './Routes/votingRoutes.js';
 import { blockchainRouter } from './Routes/blockchainRoutes.js';
 import { keyRouter } from './Routes/keyRoutes.js';
 import { electionRouter } from './Routes/electionRoutes.js';
+import { authMiddleware } from './Middleware/authMiddleware.js';
+
 
 export const app = express();
 const PORT = process.env.PORT || 3001;
@@ -48,6 +50,9 @@ const globalLimiter = rateLimit({
   message: { error: 'Too many requests. Please try again later.' },
 });
 app.use(globalLimiter);
+
+// ── Authentication Middleware ───────────────────────────────────────────────
+app.use(authMiddleware);
 
 // ── Routes ───────────────────────────────────────────────────────────────────
 app.use('/api/v1/identity', identityRouter);

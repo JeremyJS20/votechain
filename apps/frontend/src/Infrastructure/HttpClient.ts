@@ -7,10 +7,13 @@ const HttpClient = axios.create({
   },
 })
 
-// Add interceptors here if needed (e.g., for security/auth)
+// Add interceptors here for security/auth
 HttpClient.interceptors.request.use((config) => {
-  // Example: config.headers.Authorization = `Bearer ${token}`
-  return config
-})
+  const secret = import.meta.env.VITE_INTERNAL_API_SECRET;
+  if (secret) {
+    config.headers.Authorization = `Bearer ${secret}`;
+  }
+  return config;
+});
 
 export default HttpClient
