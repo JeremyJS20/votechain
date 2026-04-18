@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import TopAppBar from '../Components/Common/TopAppBar'
-import InstitutionalButton from '../Components/Common/InstitutionalButton'
-import { useDiditVerification } from '../Hooks/useDiditVerification'
-import { useVerificationContext } from '../Contexts/VerificationContext'
+import TopAppBar from '@/Presentation/Components/Common/TopAppBar'
+import InstitutionalButton from '@/Presentation/Components/Common/InstitutionalButton'
+import { useDiditVerification } from '@/Presentation/Hooks/useDiditVerification'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
 
 interface VerifyingIdentityProps {
   onSuccess?: () => void

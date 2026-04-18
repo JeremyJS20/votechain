@@ -57,13 +57,17 @@
     "identity": "Identity",
     "security": "Security",
     "brand_name": "VoteChain",
-    "digital_institution": "JCE Digital Protocol",
+    "digital_institution": "VoteChain Digital Protocol",
     "node_realtime": "Real-time Node",
     "help": "Help",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "exit_confirm_title": "End Voting Session?",
+    "exit_confirm_message": "This will securely clear all session data and return you to the home page. Do you wish to proceed?",
+    "exit_confirm_yes": "Yes, End Session",
+    "exit_confirm_no": "Cancel"
   },
   "welcome": {
-    "protocol_v": "Official JCE Protocol v4.0.2",
+    "protocol_v": "Official VoteChain Protocol v4.0.2",
     "encryption_badge": "Military Grade Encryption",
     "title_main": "Welcome to the",
     "title_highlight": "Secure Voting",
@@ -113,7 +117,7 @@
     "cta_verify": "Verify Identity",
     "back_cta": "Return to Welcome",
     "helper": {
-      "security": "Authorized JCE Encryption",
+      "security": "Authorized VoteChain Encryption",
       "padrón": "Verified with National Registry"
     },
     "sidebar": {
@@ -125,9 +129,6 @@
       "id_passport": "Passport",
       "id_license": "Driver's License",
       "id_card": "National ID Card"
-    },
-    "badges": {
-      "live_encryption": "Live Encryption Active"
     },
     "badges": {
       "live_encryption": "Live Encryption Active"
@@ -179,7 +180,7 @@
   },
   "success": {
     "title": "Identity Authenticated",
-    "subtitle": "Your digital credential has been securely issued and synchronized with the JCE Blockchain Node. You are now authorized to cast your encrypted ballot.",
+    "subtitle": "Your digital credential has been securely issued and synchronized with the VoteChain Blockchain Node. You are now authorized to cast your encrypted ballot.",
     "citizen_label": "Citizen Name",
     "session_label": "Secure Session ID",
     "timestamp_label": "Authenticated At",
@@ -191,7 +192,7 @@
     "node_value": "SANTO DOMINGO • PRIMARY",
     "secured_label": "SECURED",
     "protocol_version_label": "ARCHITECTURE",
-    "zk_proof_validated": "ZK-Proof Validated",
+    "zk_proof_validated": "ZK-Proof Validada",
     "auth_protocol": "Auth Protocol",
     "local_time": "Local Time GMT -5",
     "security_active": "Bank-grade 256-bit security active"
@@ -331,5 +332,40 @@
     "confirm_yes": "Yes, End Session",
     "confirm_no": "Cancel",
     "session_cleared": "Session Cleared"
+  },
+  "help_modal": {
+    "title": "Help Center & Guide",
+    "subtitle": "Digital Assistance Protocol",
+    "close_cta": "Understood, Close",
+    "sections": {
+      "overview_identity": {
+        "title": "Process Overview",
+        "content": "<p>The <b>digital voting process</b> begins with identity validation. This step is crucial to ensure each citizen casts only one vote and to guarantee the integrity of the electoral roll.</p>"
+      },
+      "overview_ballot": {
+        "title": "Process Overview",
+        "content": "<p>Once verified, you enter the <b>selection stage</b>. Here you can choose your candidates privately. Your choice will be encrypted on your device before being sent to the blockchain network.</p>"
+      },
+      "identity": {
+        "title": "Verification Tips",
+        "content": "<p>To ensure a seamless biometric validation, please follow these recommendations:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li>Use your <b>original physical Cédula</b> (no copies or photos).</li><li>Find a location with <b>frontal natural light</b> (avoid backlighting).</li><li>Keep your face uncovered and centered in the viewfinder.</li><li>Avoid glare or reflections on the document's surface.</li></ul>"
+      },
+      "voting": {
+        "title": "Voting Instructions",
+        "content": "<p>During the selection process, please keep in mind:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li>Review your choices in the <b>Final Summary</b> before confirming.</li><li>On the <b>Municipal</b> ballot, you must elect an Alcalde and can mark one or more Regidores.</li><li><b class='text-primary'>Note:</b> Once submitted, the vote is cryptographically signed and <b>cannot be modified</b>.</li></ul>"
+      },
+      "security": {
+        "title": "Security and Privacy",
+        "content": "<p>Your privacy is our absolute priority:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><b>Secret Ballot:</b> Your identity is separated from your vote using Zero-Knowledge (ZK) protocols.</li><li><b>Integrity:</b> Blockchain technology prevents any attempt at post-casting alteration.</li><li><b>Encryption:</b> We use 256-bit AES standards to protect all data transmissions.</li></ul>"
+      },
+      "troubleshooting_identity": {
+        "title": "Troubleshooting",
+        "content": "<p>If you encounter technical difficulties with the camera or identity:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><b>Camera Error?</b> Check your browser's site permissions.</li><li><b>Identity Error?</b> Clean your camera lens and your document's chip area.</li><li><b>Session Expired?</b> Restart the process from the beginning.</li></ul>"
+      },
+      "troubleshooting_ballot": {
+        "title": "Technical Help",
+        "content": "<p>If you experience issues during voting:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><b>Ballot not loading?</b> Refresh the page; your identity is already verified.</li><li><b>Submission error?</b> Check your internet connection.</li><li><b>Session Expired?</b> For security, voting sessions have a time limit.</li></ul>"
+      }
+    }
   }
 }

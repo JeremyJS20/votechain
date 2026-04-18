@@ -1,8 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import TopAppBar from '../Components/Common/TopAppBar'
-import InstitutionalButton from '../Components/Common/InstitutionalButton'
+import TopAppBar from '@/Presentation/Components/Common/TopAppBar'
+import InstitutionalButton from '@/Presentation/Components/Common/InstitutionalButton'
 
 interface WelcomeScreenProps {
   onBegin: () => void

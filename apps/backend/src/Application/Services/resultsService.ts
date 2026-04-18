@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { getChain } from './blockchainService.js';
+import { getChain } from '@/Application/Services/blockchainService.js';
 
 const prisma = new PrismaClient();
 

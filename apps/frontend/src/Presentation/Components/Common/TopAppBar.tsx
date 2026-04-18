@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
+import InstitutionalModal from '@/Presentation/Components/Common/InstitutionalModal'
+import HelpModal, { HelpContext } from '@/Presentation/Components/Common/HelpModal'
+import { motion } from 'framer-motion'
 
 interface NavItemProps {
   label: string
@@ -39,6 +43,41 @@ const TopAppBar: React.FC<TopAppBarProps> = ({
 }) => {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const { userId, cedula, resetSession } = useVerificationContext()
+  const [showExitModal, setShowExitModal] = useState(false)
+  const [showHelpModal, setShowHelpModal] = useState(false)
+
+  // Deduce help context from current path
+  const getHelpContext = (): HelpContext => {
+    if (pathname.includes('verification') || pathname.includes('biometric')) return 'identity'
+    if (pathname.includes('ballot') || pathname.includes('review') || pathname.includes('vote')) return 'ballot'
+    if (pathname.includes('success')) return 'success'
+    return 'general'
+  }
+
+  // Deduce if we are in a transactional context (any page in the voting process)
+  const isAutoTransactional = pathname.includes('verification') || 
+                              pathname.includes('vote') || 
+                              pathname.includes('ballot') || 
+                              pathname.includes('review') || 
+                              pathname.includes('success')
+
+  const showHelp = isTransactional || isAutoTransactional
+
+  const handleLogoClick = () => {
+    if (userId || cedula) {
+      setShowExitModal(true)
+    } else {
+      navigate('/')
+    }
+  }
+
+  const handleConfirmExit = () => {
+    resetSession()
+    setShowExitModal(false)
+    navigate('/')
+  }
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'es' : 'en'
@@ -53,14 +92,39 @@ const TopAppBar: React.FC<TopAppBarProps> = ({
     <header className="fixed top-0 left-0 right-0 h-20 bg-surface/80 backdrop-blur-2xl z-50 flex items-center justify-center shadow-[0_20px_40px_rgba(20,27,44,0.06)] px-8 md:px-16">
       <nav className="flex items-center justify-between w-full max-w-7xl h-full relative">
         {/* Brand */}
-        <div className="flex flex-col">
-          <div className="text-2xl font-black tracking-tighter uppercase text-on-surface font-display leading-none">
+        <div 
+          onClick={handleLogoClick}
+          className="flex flex-col cursor-pointer group"
+        >
+          <div className="text-2xl font-black tracking-tighter uppercase text-on-surface font-display leading-none group-hover:text-primary transition-colors">
             {t('nav.brand_name')}
           </div>
           <div className="text-[9px] font-bold text-primary uppercase tracking-[0.3em] opacity-80 mt-1">
             {t('nav.node_realtime')}
           </div>
         </div>
+
+        <InstitutionalModal
+          isOpen={showExitModal}
+          onOpenChange={setShowExitModal}
+          title={t('nav.exit_confirm_title')}
+          icon="warning"
+          statusPulse="warning"
+          secondaryActionText={t('nav.exit_confirm_no')}
+          onSecondaryAction={() => setShowExitModal(false)}
+          actionText={t('nav.exit_confirm_yes')}
+          onAction={handleConfirmExit}
+        >
+          <p className="text-sm text-on-surface/80 text-center px-4 leading-relaxed">
+            {t('nav.exit_confirm_message')}
+          </p>
+        </InstitutionalModal>
+        
+        <HelpModal 
+          isOpen={showHelpModal} 
+          onOpenChange={setShowHelpModal}
+          context={getHelpContext()}
+        />
 
         {/* Ballot Navigation - Centered Mid Section */}
         {showBallotNav && (
@@ -103,9 +167,12 @@ const TopAppBar: React.FC<TopAppBarProps> = ({
             </span>
           </button>
 
-          {isTransactional && (
+          {showHelp && (
             <div className="flex items-center gap-3">
-              <button className="h-10 px-3 flex items-center justify-center rounded-xl bg-surface-container-low hover:bg-surface-container-high text-on-surface/60 hover:text-primary transition-colors gap-2">
+              <button 
+                onClick={() => setShowHelpModal(true)}
+                className="h-10 px-3 flex items-center justify-center rounded-xl bg-surface-container-low hover:bg-surface-container-high text-on-surface/60 hover:text-primary transition-colors gap-2 cursor-pointer"
+              >
                 <span className="material-symbols text-xl">help</span>
                 <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:inline">{t('nav.help')}</span>
               </button>

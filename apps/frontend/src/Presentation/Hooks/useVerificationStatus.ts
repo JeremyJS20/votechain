@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { VerificationService } from '../../Infrastructure/Services/VerificationService'
-import { useVerificationContext } from '../Contexts/VerificationContext'
+import { VerificationService } from '@/Infrastructure/Services/VerificationService'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
 
 export const useVerificationStatus = () => {
   const { setVerificationStatus, setUserVerified, setErrorMessage } = useVerificationContext()

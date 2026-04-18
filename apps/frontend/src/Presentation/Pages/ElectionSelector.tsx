@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useVerificationContext } from '../Contexts/VerificationContext'
-import { VotingService, type ElectionStatusItem } from '../../Infrastructure/Services/VotingService'
-import TopAppBar from '../Components/Common/TopAppBar'
-import InstitutionalFooter from '../Components/Common/InstitutionalFooter'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
+import { VotingService, type ElectionStatusItem } from '@/Infrastructure/Services/VotingService'
+import TopAppBar from '@/Presentation/Components/Common/TopAppBar'
+import InstitutionalFooter from '@/Presentation/Components/Common/InstitutionalFooter'
 
 const ELECTION_ICONS: Record<string, string> = {
   PRESIDENTIAL:  'account_balance',

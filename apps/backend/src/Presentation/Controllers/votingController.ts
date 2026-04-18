@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { votingService } from '../../Application/Services/votingService.js';
-import { ballotService } from '../../Application/Services/ballotService.js';
-import { resultsService } from '../../Application/Services/resultsService.js';
+import { votingService } from '@/Application/Services/votingService.js';
+import { ballotService } from '@/Application/Services/ballotService.js';
+import { resultsService } from '@/Application/Services/resultsService.js';
 import { VoteSubmissionSchema, BallotQuerySchema } from '@votechain/common';
 
 // ─── SUBMIT VOTE ──────────────────────────────────────────────────────────────

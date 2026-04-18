@@ -1,4 +1,4 @@
-import HttpClient from '../HttpClient';
+import HttpClient from '@/Infrastructure/HttpClient';
 import type { Candidate, VoteReceipt, Election } from '@votechain/common';
 
 // ── Response types ────────────────────────────────────────────────────────────

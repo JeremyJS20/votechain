@@ -57,13 +57,17 @@
     "identity": "Identidad",
     "security": "Seguridad",
     "brand_name": "VoteChain",
-    "digital_institution": "Protocolo Digital JCE",
+    "digital_institution": "Protocolo Digital VoteChain",
     "node_realtime": "Nodo en Tiempo Real",
     "help": "Ayuda",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "exit_confirm_title": "¿Finalizar Sesión de Votación?",
+    "exit_confirm_message": "Esto borrará de forma segura todos los datos de sesión y lo regresará a la página de inicio. ¿Desea continuar?",
+    "exit_confirm_yes": "Sí, Finalizar Sesión",
+    "exit_confirm_no": "Cancelar"
   },
   "welcome": {
-    "protocol_v": "Protocolo Oficial JCE v4.0.2",
+    "protocol_v": "Protocolo Oficial VoteChain v4.0.2",
     "encryption_badge": "Cifrado Nacional de Grado Militar",
     "title_main": "Bienvenidos al",
     "title_highlight": "Portal de Votación",
@@ -113,7 +117,7 @@
     "cta_verify": "Verificar Identidad",
     "back_cta": "Regresar al Inicio",
     "helper": {
-      "security": "Cifrado JCE Autorizado",
+      "security": "Cifrado VoteChain Autorizado",
       "padrón": "Verificado con el Padrón Nacional"
     },
     "sidebar": {
@@ -125,9 +129,6 @@
       "id_passport": "Pasaporte",
       "id_license": "Licencia de Conducir",
       "id_card": "Cédula de Identidad"
-    },
-    "badges": {
-      "live_encryption": "Cifrado en Vivo Activo"
     },
     "badges": {
       "live_encryption": "Cifrado en Vivo Activo"
@@ -179,7 +180,7 @@
   },
   "success": {
     "title": "Identidad Autenticada",
-    "subtitle": "Su credencial digital ha sido emitida de forma segura y sincronizada con el Nodo Blockchain de la JCE. Ahora está autorizado para emitir su voto cifrado.",
+    "subtitle": "Su credencial digital ha sido emitida de forma segura y sincronizada con el Nodo Blockchain de la VoteChain. Ahora está autorizado para emitir su voto cifrado.",
     "citizen_label": "Nombre del Ciudadano",
     "session_label": "ID de Sesión Segura",
     "timestamp_label": "Autenticado en",
@@ -331,5 +332,40 @@
     "confirm_yes": "Sí, Finalizar Sesión",
     "confirm_no": "Cancelar",
     "session_cleared": "Sesión Eliminada"
+  },
+  "help_modal": {
+    "title": "Centro de Ayuda y Guía",
+    "subtitle": "Protocolo Digital de Asistencia",
+    "close_cta": "Entendido, Cerrar",
+    "sections": {
+      "overview_identity": {
+        "title": "Descripción General",
+        "content": "<p>El proceso de <b>voto digital</b> comienza con la validación de su identidad. Este paso es crucial para asegurar que cada ciudadano emita un solo voto y garantizar la integridad del padrón electoral.</p>"
+      },
+      "overview_ballot": {
+        "title": "Descripción del Proceso",
+        "content": "<p>Una vez verificado, usted entra en la etapa de <b>selección</b>. Aquí podrá elegir sus candidatos de forma privada. Su elección será cifrada en su dispositivo antes de ser enviada a la red blockchain.</p>"
+      },
+      "identity": {
+        "title": "Consejos de Verificación",
+        "content": "<p>Para asegurar una validación biométrica sin contratiempos, siga estas recomendaciones:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li>Use su <b>Cédula física original</b> (no copias ni fotos).</li><li>Busque un lugar con <b>luz natural frontal</b> (evite contraluces).</li><li>Mantenga su rostro descubierto y centrado en el visor.</li><li>Evite reflejos sobre el plástico del documento.</li></ul>"
+      },
+      "voting": {
+        "title": "Instrucciones de Votación",
+        "content": "<p>Durante el proceso de selección, tenga en cuenta:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li>Revise sus selecciones en el <b>Resumen Final</b> antes de confirmar.</li><li>En la boleta <b>Municipal</b>, debe elegir un Alcalde y puede marcar uno o más Regidores.</li><li><b class='text-primary'>Importante:</b> Una vez enviado, el voto se firma criptográficamente y <b>no puede ser modificado</b>.</li></ul>"
+      },
+      "security": {
+        "title": "Seguridad y Privacidad",
+        "content": "<p>Su privacidad es nuestra prioridad absoluta:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><b>Voto Secreto:</b> Su identidad se separa de su voto mediante protocolos de conocimiento cero (ZK).</li><li><b>Integridad:</b> La tecnología Blockchain impide cualquier intento de alteración posterior.</li><li><b>Cifrado:</b> Usamos estándares AES de 256 bits para proteger la transmisión de datos.</li></ul>"
+      },
+      "troubleshooting_identity": {
+        "title": "Resolución de Problemas",
+        "content": "<p>Si encuentra dificultades técnicas con la cámara o identidad:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><b>¿Error de Cámara?</b> Verifique los permisos de su navegador.</li><li><b>¿Error de Identidad?</b> Limpie la lente de la cámara y el chip de su documento.</li><li><b>¿Sesión Expirada?</b> Reinicie el proceso desde el inicio.</li></ul>"
+      },
+      "troubleshooting_ballot": {
+        "title": "Ayuda Técnica",
+        "content": "<p>Si experimenta problemas durante la votación:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><b>¿No carga la boleta?</b> Refresque la página; su identidad ya está verificada.</li><li><b>¿Error al enviar?</b> Verifique su conexión a internet.</li><li><b>¿Sesión Expirada?</b> Por seguridad, las sesiones de votación tienen un tiempo límite.</li></ul>"
+      }
+    }
   }
 }

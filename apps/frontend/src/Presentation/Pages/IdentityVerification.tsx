@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 // useNavigate removed
-import HttpClient from '../../Infrastructure/HttpClient'
-import TopAppBar from '../Components/Common/TopAppBar'
-import InstitutionalButton from '../Components/Common/InstitutionalButton'
-import InstitutionalModal from '../Components/Common/InstitutionalModal'
-import InstitutionalFooter from '../Components/Common/InstitutionalFooter'
-import { useVerificationContext } from '../Contexts/VerificationContext'
+import HttpClient from '@/Infrastructure/HttpClient'
+import TopAppBar from '@/Presentation/Components/Common/TopAppBar'
+import InstitutionalButton from '@/Presentation/Components/Common/InstitutionalButton'
+import InstitutionalModal from '@/Presentation/Components/Common/InstitutionalModal'
+import InstitutionalFooter from '@/Presentation/Components/Common/InstitutionalFooter'
+import { useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
 
 interface IdentityVerificationProps {
   onBack: () => void
@@ -214,6 +214,8 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({ onBack, onS
         title={t('identity.modal.title')}
         subtitle={t('identity.modal.subtitle')}
         statusPulse="success"
+        secondaryActionText={t('ballot.actions.go_back')}
+        onSecondaryAction={() => setIsModalOpen(false)}
         actionText={t('identity.modal.proceed_cta')}
         actionIcon="fingerprint"
         onAction={() => {

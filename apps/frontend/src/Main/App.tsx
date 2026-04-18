@@ -1,17 +1,17 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, useNavigate, Outlet } from 'react-router-dom'
-import WelcomeScreen from '../Presentation/Pages/WelcomeScreen'
-import IdentityVerification from '../Presentation/Pages/IdentityVerification'
-import VerifyingIdentity from '../Presentation/Pages/VerifyingIdentity'
-import IdentitySuccess from '../Presentation/Pages/IdentitySuccess'
-import ElectionSelector from '../Presentation/Pages/ElectionSelector'
-import BallotPage from '../Presentation/Pages/BallotPage'
-import ReviewAndConfirm from '../Presentation/Pages/ReviewAndConfirm'
-import VoteSuccess from '../Presentation/Pages/VoteSuccess'
+import WelcomeScreen from '@/Presentation/Pages/WelcomeScreen'
+import IdentityVerification from '@/Presentation/Pages/IdentityVerification'
+import VerifyingIdentity from '@/Presentation/Pages/VerifyingIdentity'
+import IdentitySuccess from '@/Presentation/Pages/IdentitySuccess'
+import ElectionSelector from '@/Presentation/Pages/ElectionSelector'
+import BallotPage from '@/Presentation/Pages/BallotPage'
+import ReviewAndConfirm from '@/Presentation/Pages/ReviewAndConfirm'
+import VoteSuccess from '@/Presentation/Pages/VoteSuccess'
 
-import { VerificationProvider, useVerificationContext } from '../Presentation/Contexts/VerificationContext'
-import { BallotProvider } from '../Presentation/Contexts/BallotContext'
-import { VotingProvider } from '../Presentation/Contexts/VotingContext'
+import { VerificationProvider, useVerificationContext } from '@/Presentation/Contexts/VerificationContext'
+import { BallotProvider } from '@/Presentation/Contexts/BallotContext'
+import { VotingProvider } from '@/Presentation/Contexts/VotingContext'
 
 // ── Route Guard ───────────────────────────────────────────────────────────────
 const ProtectedRoute: React.FC = () => {

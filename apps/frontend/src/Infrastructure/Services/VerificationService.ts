@@ -1,4 +1,4 @@
-import HttpClient from '../HttpClient'
+import HttpClient from '@/Infrastructure/HttpClient'
 
 export class VerificationService {
   private static readonly API_URL = '/verification'
